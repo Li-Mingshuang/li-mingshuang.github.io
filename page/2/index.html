@@ -1,251 +1,198 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
-  </script>
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/2/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://example.com/page/2/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>Hexo</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Hexo</title>
+        <meta name="author" content="John Doe">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="icon" href="">
+        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
+        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
+        
+        <link rel="stylesheet" href="/css/fonts.min.css">
+        <link rel="stylesheet" href="/css/particlex.css">
+        
+        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
+    <meta name="generator" content="Hexo 6.2.0"></head>
+    <body>
+        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
+        <div id="layout">
+            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
+            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
+            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
+            <transition name="into">
+                <div v-show="show_page" style="display: -not-none">
+                    <div id="menu_show">
+                         
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Hexo</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;about</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;tags</span>
+        </a>
+        
     </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Hexo</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
-
-  </li>
-  </ul>
-</nav>
-
-
-
-
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content index posts-expand">
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
+        <div :class="'title'" @click="menu_show = !menu_show">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;Hexo</span>
+        </div>
+        <transition name="slide">
+        <div class="items" v-show="menu_show">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/26/hexo-github%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/08/26/hexo-github%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" class="post-title-link" itemprop="url">hexo+github博客常用指令</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-08-26 16:45:45 / 修改时间：16:53:38" itemprop="dateCreated datePublished" datetime="2022-08-26T16:45:45+08:00">2022-08-26</time>
-            </span>
-
-          
-
+            <a href="/">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-house fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-id-card fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-box-archive fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width: 20px; max-width: 50px; width: 10%">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </div>
+                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
+                </div>
+            </a>
+            
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>&amp;nbsp; </p>
-<p>220826</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;new_blog&quot;    # 新建博客</span><br><span class="line">hexo g -d              # 上传到github</span><br><span class="line">hexo s                 # 生成本地预览链接</span><br></pre></td></tr></table></figure>
-
-      
+        </transition>
     </div>
-
+</nav>
+                    </div>
+                    <div id="main">
+                        <div id="home-head">
+    <div id="home-background" style="background-image: url()"></div>
     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Hexo</h1>
+                <h3></h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
     
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+</div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/26/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">
+<div id="home-posts-wrap" class="">
+    <div id="home-posts">
+        <div id="posts">
+            
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/08/26/%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">关于博客的一些问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-08-26 16:00:09 / 修改时间：21:02:41" itemprop="dateCreated datePublished" datetime="2022-08-26T16:00:09+08:00">2022-08-26</time>
+<div class="post">
+    <a href="/2022/08/26/hexo-github博客常用指令/">
+        <h2 class="post-title">Hexo+github博客常用指令</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
+            2022/8/26
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>&amp;nbsp; </p>
+<p>220826</p>
+<pre><code class="git">hexo new &quot;new_blog&quot;    # 新建博客
+hexo g -d              # 上传到github
+hexo s                 # 生成本地预览链接
+</code></pre>
 
-          
-
+            
         </div>
-      </header>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/08/26/hexo-github博客常用指令/" class="go-post">阅读全文</a>
+</div>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>220826</p>
+<div class="post">
+    <a href="/2022/08/26/关于博客的一些问题/">
+        <h2 class="post-title">关于博客的一些问题</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/26
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>220826</p>
 <ol>
 <li>格式化文本在本地md编辑器marktext中和博客中显示风格不一致<ol>
 <li>通常的md显示风格是什么样的<ol start="2">
@@ -284,64 +231,33 @@
 <li>怎么输出空行，目前的方法’&amp;nbsp’在本地可以显示为空行，但是在博客中直接显示字符串了</li>
 </ol>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/26/my-first-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/08/26/my-first-blog/" class="post-title-link" itemprop="url">my-first-blog</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-08-26 14:18:52 / 修改时间：16:56:04" itemprop="dateCreated datePublished" datetime="2022-08-26T14:18:52+08:00">2022-08-26</time>
-            </span>
-
-          
-
+            
         </div>
-      </header>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/08/26/关于博客的一些问题/" class="go-post">阅读全文</a>
+</div>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><h2 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h2><h3 id="标题三"><a href="#标题三" class="headerlink" title="标题三"></a>标题三</h3><h4 id="标题四"><a href="#标题四" class="headerlink" title="标题四"></a>标题四</h4><h5 id="标题五"><a href="#标题五" class="headerlink" title="标题五"></a>标题五</h5><h6 id="标题六"><a href="#标题六" class="headerlink" title="标题六"></a>标题六</h6><p>第一段</p>
+<div class="post">
+    <a href="/2022/08/26/my-first-blog/">
+        <h2 class="post-title">My-First-Blog</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/26
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><h2 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h2><h3 id="标题三"><a href="#标题三" class="headerlink" title="标题三"></a>标题三</h3><h4 id="标题四"><a href="#标题四" class="headerlink" title="标题四"></a>标题四</h4><h5 id="标题五"><a href="#标题五" class="headerlink" title="标题五"></a>标题五</h5><h6 id="标题六"><a href="#标题六" class="headerlink" title="标题六"></a>标题六</h6><p>第一段</p>
 <p>第二段</p>
 <p><em>斜体文本</em><br><em>斜体文本</em><br><strong>粗体文本</strong><br><strong>粗体文本</strong><br><em><strong>粗斜体文本</strong></em><br><em><strong>粗斜体文本</strong></em></p>
 <h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><p>三个以上的星号、减号、下划线来建立(可以隔开)</p>
@@ -421,8 +337,8 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello, world!&quot;</span>)</span><br></pre></td></tr></table></figure>
-
+<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><pre><code class="python">    print(&quot;Hello, world!&quot;)
+</code></pre>
 <h3 id="链接插入"><a href="#链接插入" class="headerlink" title="链接插入"></a>链接插入</h3><p><a target="_blank" rel="noopener" href="https://mrhuanhao.cn/">https://mrhuanhao.cn/</a></p>
 <p><a target="_blank" rel="noopener" href="https://mrhuanhao.cn/">huanhao的主页</a></p>
 <p><a target="_blank" rel="noopener" href="https://mrhuanhao.cn/">https://mrhuanhao.cn/</a></p>
@@ -459,312 +375,173 @@
 </ul>
 <h3 id="空行"><a href="#空行" class="headerlink" title="空行"></a>空行</h3><p>&amp;nbsp;</p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/26/%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/08/26/%E6%96%87%E7%AB%A0%E9%93%BE%E6%8E%A5/" class="post-title-link" itemprop="url">文章链接</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-08-26 14:18:41" itemprop="dateCreated datePublished" datetime="2022-08-26T14:18:41+08:00">2022-08-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-09-01 00:08:21" itemprop="dateModified" datetime="2022-09-01T00:08:21+08:00">2022-09-01</time>
-              </span>
-
-          
-
+            
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p> </p>
-
-      
     </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/08/26/my-first-blog/" class="go-post">阅读全文</a>
+</div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/26/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/08/26/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-08-26 14:10:44 / 修改时间：15:32:52" itemprop="dateCreated datePublished" datetime="2022-08-26T14:10:44+08:00">2022-08-26</time>
+<div class="post">
+    <a href="/2022/08/26/文章链接/">
+        <h2 class="post-title">文章链接</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
             </span>
+            2022/8/26
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p> </p>
 
-          
-
+            
         </div>
-      </header>
+    </div>
+    <div class="post-tags">
+        
+        
+    </div>
+    <a href="/2022/08/26/文章链接/" class="go-post">阅读全文</a>
+</div>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
+<div class="post">
+    <a href="/2022/08/26/hello-world/">
+        <h2 class="post-title">Hello World</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
+            </span>
+            2022/8/26
+        </span>
+    </div>
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+</code></pre>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+</code></pre>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+</code></pre>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+</code></pre>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
+            
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">15</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-  </nav>
-</div>
-
-
-
-      </div>
-
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
+    <div class="post-tags">
         
-
         
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+    </div>
+    <a href="/2022/08/26/hello-world/" class="go-post">阅读全文</a>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
 
+             
+<div class="page-current">
+    <div class="prev">
+        
+        <a href="/">
+            <span class="page-num">
+                <i class="fa-solid fa-caret-left fa-fw"></i>
+            </span>
+        </a>
+        
+    </div>
+    <div class="page-index">
+        
+        <span>
+            
+            
+            <a href="/">
+                <span class="page-num">
+                    1
+                </span>
+            </a>
+        </span>
+        
+        <span class="current">
+            2
+        </span>
+        
+    </div>
+    <div class="next">
+        
+    </div>
+</div>
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <div id="card-div">
+    <div class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src=" " alt="avatar">
+        </div>
+        <div class="name">
+            John Doe
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                Description...
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+        </div>
+        <div class="friend-links">
+            
+        </div>
+    </div>
+</div>
+    </div>
+    
+</div>
+                         
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 20xx - 2022 Hexo
+            <span class="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            @John Doe
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+        
+    </div>
+</footer>
+                    </div>
+                </div>
+            </transition>
+            <div id="img_show">
+                <img id="img_content" alt="img_show">
+            </div>
+        </div>
+        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
+        <script src="/js/particlex.js"></script>
+        <script src="/js/showimg.js"></script>
         
 
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-</body>
+    </body>
 </html>
