@@ -1,650 +1,328 @@
-
 <!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Hexo</title>
-        <meta name="author" content="John Doe">
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <link rel="icon" href="">
-        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
-        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
-        
-        <link rel="stylesheet" href="/css/fonts.min.css">
-        <link rel="stylesheet" href="/css/particlex.css">
-        
-        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
-    <meta name="generator" content="Hexo 6.2.0"></head>
-    <body>
-        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
-        <div id="layout">
-            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
-            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
-            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
-            <transition name="into">
-                <div v-show="show_page" style="display: -not-none">
-                    <div id="menu_show">
-                         
-<nav id="menu">
-    <div class="desktop-menu">
-        <a href="/">
-            <span class="title">Hexo</span>
-        </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;about</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;archives</span>
-        </a>
-        
-        <a href="/categories">
-            <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;categories</span>
-        </a>
-        
-        <a href="/tags">
-            <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;tags</span>
-        </a>
-        
-    </div>
-    <div :class="'phone-menu ' + menu_show" id="phone-menu">
-        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
-        <div :class="'title'" @click="menu_show = !menu_show">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;Hexo</span>
-        </div>
-        <transition name="slide">
-        <div class="items" v-show="menu_show">
-            
-            <a href="/">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-house fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
-                </div>
-            </a>
-            
-            <a href="/about">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-id-card fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
-                </div>
-            </a>
-            
-            <a href="/archives">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-box-archive fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
-                </div>
-            </a>
-            
-            <a href="/categories">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-bookmark fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
-                </div>
-            </a>
-            
-            <a href="/tags">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
-                </div>
-            </a>
-            
-        </div>
-        </transition>
-    </div>
-</nav>
-                    </div>
-                    <div id="main">
-                        <div id="home-head">
-    <div id="home-background" style="background-image: url()"></div>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
     
-    <div id="home-info" class="home-info" @click="home_click">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>Hexo</h1>
-                <h3></h3>
-                <h5></h5>
-            </div>
-        </span>
-    </div>
     
-</div>
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Hexo</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
 
-<div id="home-posts-wrap" class="">
-    <div id="home-posts">
-        <div id="posts">
-            
 
-<div class="post">
-    <a href="/2022/09/11/220910-周六/">
-        <h2 class="post-title">220910-周六</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/11
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="进行中"><a href="#进行中" class="headerlink" title="进行中"></a>进行中</h3><ol>
-<li>装stable diffusion环境，下载模型权重，跑代码。</li>
-</ol>
+    <!-- Umami Analytics -->
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/11/220910-周六/" class="go-post">阅读全文</a>
-</div>
 
-<div class="post">
-    <a href="/2022/09/11/220909-周五/">
-        <h2 class="post-title">220909-周五</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/11
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><ol>
-<li>dicom数据格式。</li>
-</ol>
-<h3 id="完成内容"><a href="#完成内容" class="headerlink" title="完成内容"></a>完成内容</h3><ol>
-<li><p>学签填表部分。</p>
-</li>
-<li><p>肝脏数据分析。</p>
-</li>
-</ol>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/11/220909-周五/" class="go-post">阅读全文</a>
-</div>
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.2.0"></head>
 
-<div class="post">
-    <a href="/2022/09/09/220908-周四/">
-        <h2 class="post-title">220908-周四</h2>
-    </a>
-    <div class="category-and-date">
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 h-card">
         
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/9
-        </span>
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">Hexo</h1>
     </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><p>无</p>
-<h3 id="完成内容"><a href="#完成内容" class="headerlink" title="完成内容"></a>完成内容</h3><ol>
-<li>协助修改json文件。（半小时）</li>
-</ol>
-<h3 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h3><ol>
-<li><p>这周每天都上午到工位，结果工时非常的拉跨， 似乎是因为被觉得来的早所以时间充裕可以先干非目标相关的事情所蒙蔽，于是上午纯粹是摸鱼，下午是干些觉得有点用但是非当前目标的任务内容的事情，到了晚上觉得累了又开始摸鱼。</p>
-<ul>
-<li>调整思路：每天来了浏览完最新资讯后，立刻开始着手干主要任务，等干到期望的时间值（8小时）后，早干完早休息，或者再开始干别的自己想干的。</li>
-</ul>
-</li>
-</ol>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a target="_blank" rel="noopener" href="http://github.com/probberechts">项目</a></li><!--
+   -->
+    </ul>
+  </div>
+</header>
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
+        
+        <section id="about" class="p-note">
+  
+  
+    <p>
+      在这里找到我：
+      
+      
+      
         
         
-    </div>
-    <a href="/2022/09/09/220908-周四/" class="go-post">阅读全文</a>
-</div>
+          <a class="icon u-url" target="_blank" rel="noopener me" href="http://github.com/probberechts/cactus-dark" aria-label="github" title="github">
+            <i class="fa-brands fa-github"></i><!--
+      ---></a><!--
+    ---><!--
+    --->， 
+        
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="/" aria-label="twitter" title="twitter">
+            <i class="fa-brands fa-twitter"></i><!--
+      ---></a><!--
+    ---><!--
+    --->， 
+        
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="/" aria-label="facebook" title="facebook">
+            <i class="fa-brands fa-facebook"></i><!--
+      ---></a><!--
+    ---><!--
+    --->， 
+        
+      
+        
+        
+          <a class="icon u-email" target="_blank" rel="noopener" href="mailto:name@email.com" aria-label="mail" title="mail">
+            <i class="fa-solid fa-envelope"></i><!--
+      ---></a>
+        <!--
+    --->， 
+        
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="https://mastodon.social/@alice" aria-label="mastodon.social" title="mastodon.social">
+            <i class="fa-brands fa-mastodon"></i><!--
+      ---></a><!--
+    ---><!--
+    ---> 和 
+        
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="https://fosstodon.org/@alice" aria-label="fosstodon.org" title="fosstodon.org">
+            <i class="fa-brands fa-mastodon"></i><!--
+      ---></a><!--
+    ---><!--
+    --->.
+        
+      
+    </p>
+  
+</section>
 
-<div class="post">
-    <a href="/2022/09/09/220907-周三/">
-        <h2 class="post-title">220907-周三</h2>
-    </a>
-    <div class="category-and-date">
+<section id="writing">
+  <span class="h1"><a href="/archives/">文章</a></span>
+  
+  <ul class="post-list">
+    
+    
+      
+    
+    
+      <li class="post-item">
         
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/9
-        </span>
+    <div class="meta">
+      
+        
+          <time datetime="2023-04-28T19:45:44.000Z" class="dt-published" itemprop="datePublished">2023-04-29</time>
+        
+      
     </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><ol>
-<li>看了半小时机器学习中Metric相关：precision, sensitivity (recall), specificity, accuracy。</li>
-</ol>
-<h3 id="完成内容"><a href="#完成内容" class="headerlink" title="完成内容"></a>完成内容</h3><ol>
-<li><p>找了一个文献管理工具，Zetero，安装使用。</p>
-</li>
-<li><p>在github上找了一个聊天机器人，装好环境并使用，感觉很笨。</p>
-</li>
-</ol>
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/09/220907-周三/" class="go-post">阅读全文</a>
-</div>
 
-<div class="post">
-    <a href="/2022/09/07/220906-周二/">
-        <h2 class="post-title">220906-周二</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/7
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><ol>
-<li>论文《 Development and Evaluation of a Deep Learning Algorithm for Rib Segmentation and Fracture Detection from Multicenter Chest CT Images》除去结果分析部分基本精读完，剩下学习：<ol>
-<li>所基于的Faster—CNN以及在其上的拓展。</li>
-<li>用到一些metric方法。</li>
-</ol>
-</li>
-<li>Pillow如何保存单通道图。</li>
-</ol>
-<h3 id="完成内容"><a href="#完成内容" class="headerlink" title="完成内容"></a>完成内容</h3><ol>
-<li>协助处理数据。</li>
-</ol>
-<h3 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h3><ol>
-<li>把吴恩达深度学习视频课程中关于目标检测的部分看完了再来读这篇文章就大致比较清晰他使用了什么方法，那些方法基于什么思想了。尽管方法细节还需要进一步学习。</li>
-<li>这周学习起步投入不是很足，接下来要更努力一点。</li>
-</ol>
-<h3 id="明日计划"><a href="#明日计划" class="headerlink" title="明日计划"></a>明日计划</h3><ol>
-<li>把精读这篇论文剩下的工作完成。</li>
-<li>处理完关于学校*的一些事务。</li>
-<li>拉一个加拿大学校清单。</li>
-</ol>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/07/220906-周二/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/06/220905-周一/">
-        <h2 class="post-title">220905-周一</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/6
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><ol>
-<li>看完吴恩达深度学习视频中关于对象检测部分。</li>
-</ol>
-<h3 id="完成内容"><a href="#完成内容" class="headerlink" title="完成内容"></a>完成内容</h3><ol>
-<li><p>更改博客主题。</p>
-</li>
-<li><p>研究hexo+github博客如何插入图片：想直接使用github作为图床；目前还没搞定。</p>
-<ol>
-<li>我去，发完这一则博客后突然发现test文件中的图片可以正常在博客主页显示了。之前碰到的问题是，npm安装包报错，所以查到的两个方法中分别使用的两个包都没安装成功：hexo-asset-image，hexo-renderer-marked。我也不确定是否真的没安装成功，反正都报同样我没看明天的错误，并没提示安装成功的消息。唯独进行的先是自动把图片保存在博客文档同目录下，后来改成保存到’blog&#x2F;source&#x2F;images&#x2F;md’文件名中。现在发现图片可以显示后，看了一下github页面，发现图片被传到了库中images&#x2F;test文件夹中。还有把config中上传asset文件夹也设为了True。</li>
-<li>如果上述都没错的话，那么看来不需要安装包，只需要进行这样的设置就可以自动把图片上传到github上并显示在博客中了。</li>
-<li>研究的时候在哪里看到说hexo每次上传博客到github中是重新上传整个目录中全部文件，所以要另外开个库把图片存在那个库中，再怎么引用一下，md链接或者其他方法？但是我觉得hexo设置应该不会这么蠢吧，应该就是遵循一般库push时候修改增量删量的方法？没有必要不按照这样的规则来。</li>
-</ol>
-</li>
-</ol>
-<h3 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h3><ol>
-<li>mark text作为编辑器属实不太行，编辑的时候各种小bug不断，比如会突然：光标不能正常移动；不能撤销；非源码模式文本格式不能显现；有标号换行时缩进不能正常调整等等。以至于即便打不到今天这么多的内容的文本（其实很少），也必须源码模式和非源码模式来回切换，使得自己能正确调整格式，后来干脆就直接在源码格式下输入了。<ol>
-<li>似乎又不怎么更新，我这目前就是最新版还有这么多问题，先看下它有没更新解决bug的计划，不然还是得寻找替代品。</li>
-<li>如果源码格式没有什么bug的话，只在源码格式下进行编辑，非源码格式下预览也不是完全不能接受，毕竟我现在了解到的流行的md编辑器中具有所见即所得的功能的也不是很多。</li>
-</ol>
-</li>
-</ol>
-<h3 id="明日计划"><a href="#明日计划" class="headerlink" title="明日计划"></a>明日计划</h3><ol>
-<li><p>精读完：</p>
-<p>Development and Evaluation of a Deep Learning Algorithm for Rib Segmentation and Fracture Detection from Multicenter Chest CT Images</p>
-</li>
-</ol>
-<p>    1. 看完2篇依赖模型的论文。</p>
-<ol start="2">
-<li>看下YOLO论文，有可能的话跑下YOLO代码，看下能用YOLO干什么有意思事情。</li>
-</ol>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/06/220905-周一/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/05/test/">
-        <h2 class="post-title">Test</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/5
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p><img src="/../images/test/2022-09-06-00-05-44-image.png"></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/05/test/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/05/220904-周日/">
-        <h2 class="post-title">220904-周日</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/5
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><ol>
-<li><p>吴恩达深度学习视频：</p>
-<ul>
-<li><p>经典CNN网络和模块：LeNet，AlexNet，VGG16，Residual Block，Inception，GoogleNet；</p>
-</li>
-<li><p>1*1 Conv</p>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="明日计划"><a href="#明日计划" class="headerlink" title="明日计划"></a>明日计划</h3><ol>
-<li><p>精读完：</p>
-<p>Development and Evaluation of a Deep Learning Algorithm for Rib   Segmentation and Fracture Detection from Multicenter Chest CT Images</p>
-<ol>
-<li>看完2篇依赖模型的论文。</li>
-</ol>
-</li>
-<li><p>看完吴恩达深度学习视频中关于CNN部分。</p>
-</li>
-</ol>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/05/220904-周日/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/04/220903-周六/">
-        <h2 class="post-title">220903-周六</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/4
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><ol>
-<li><p>精读论文：</p>
-<p>Development and Evaluation of a Deep Learning Algorithm for Rib Segmentation and Fracture Detection from Multicenter Chest CT Images</p>
-<p>看到模型结构</p>
-</li>
-<li><p>对于上述论文中不了解的模型：Faster CNN，YOLO，找相关资料看；看吴恩达CNN相关视频半个小时。</p>
-</li>
-</ol>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/04/220903-周六/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/09/04/220902-周五/">
-        <h2 class="post-title">220902-周五</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/4
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="完成内容"><a href="#完成内容" class="headerlink" title="完成内容"></a>完成内容</h3><ol>
-<li>协助师兄：去掉多余帧；写从分好3折的数据自动生成3个完整的训练-验证数据集的代码。</li>
-</ol>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/04/220902-周五/" class="go-post">阅读全文</a>
-</div>
-
-             
-<div class="page-current">
-    <div class="prev">
-        
-        <a href="/page/2/">
-            <span class="page-num">
-                <i class="fa-solid fa-caret-left fa-fw"></i>
-            </span>
-        </a>
-        
-    </div>
-    <div class="page-index">
-        
         <span>
-            
-            
-                
-                <a href="/">
-                    <span class="page-num">1</span>
-                </a>
-                
-                
-            
-            <a href="/page/2/">
-                <span class="page-num">
-                    2
-                </span>
-            </a>
-        </span>
+    
+        <a class="" href="/2023/04/29/230429/">230429</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
         
-        <span class="current">
-            3
-        </span>
+    <div class="meta">
+      
         
+          <time datetime="2022-10-30T16:00:41.000Z" class="dt-published" itemprop="datePublished">2022-10-31</time>
+        
+      
+    </div>
+
+
         <span>
-            <a href="/page/4/">
-                <span class="page-num">
-                    4
-                </span>
-            </a>
-            
-            <a href="/page/5">
-                <span class="page-num">
-                    5
-                </span>
-            </a>
-            
-            
-        </span>
-        
-    </div>
-    <div class="next">
-        
-        <a href="/page/4/ ">
-            <span class="page-num">
-                <i class="fa-solid fa-caret-right fa-fw"></i>
-            </span>
-        </a>
-        
-    </div>
-</div>
-        </div>
-    </div>
     
-    <div id="home-card">
-        <div id="card-div">
-    <div class="card-style" style="width: 300px">
-        <div class="avatar">
-            <img src=" " alt="avatar">
-        </div>
-        <div class="name">
-            John Doe
-        </div>
-        <div class="descriptions">
-            
-            <div class="description">
-                Description...
-            </div>
-            
-        </div>
-        <div class="icon-links">
-            
-        </div>
-        <div class="friend-links">
-            
-        </div>
-    </div>
-</div>
-    </div>
+        <a class="" href="/2022/10/31/221030-%E5%91%A8%E6%97%A5/">221030-周日</a>
     
-</div>
-                         
-<footer id="footer">
-    <div class="footer-wrap">
-        <div>
-            © 20xx - 2023 Hexo
-            <span class="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            @John Doe
-        </div>
-        <div></div>
-        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
-                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
         
+    <div class="meta">
+      
+        
+          <time datetime="2022-10-29T16:58:02.000Z" class="dt-published" itemprop="datePublished">2022-10-30</time>
+        
+      
     </div>
+
+
+        <span>
+    
+        <a class="" href="/2022/10/30/221029-%E5%91%A8%E5%85%AD/">221029-周六</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2022-10-29T16:48:14.000Z" class="dt-published" itemprop="datePublished">2022-10-30</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2022/10/30/221028-%E5%91%A8%E4%BA%94/">221028-周五</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2022-10-27T18:35:03.000Z" class="dt-published" itemprop="datePublished">2022-10-28</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2022/10/28/221027-%E5%91%A8%E5%9B%9B/">221027-周四</a>
+    
+
+
+</span>
+      </li>
+    
+  </ul>
+  
+</section>
+
+
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2023
+    John Doe
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
 </footer>
-                    </div>
-                </div>
-            </transition>
-            <div id="img_show">
-                <img id="img_content" alt="img_show">
-            </div>
-        </div>
-        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
-        <script src="/js/particlex.js"></script>
-        <script src="/js/showimg.js"></script>
-        
 
-    </body>
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
 </html>

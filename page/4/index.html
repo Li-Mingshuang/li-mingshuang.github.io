@@ -1,752 +1,328 @@
-
 <!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <title>Hexo</title>
-        <meta name="author" content="John Doe">
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <link rel="icon" href="">
-        <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js" type="module"></script>
-        <script src="https://cdn.staticfile.org/font-awesome/6.1.1/js/all.min.js"></script>
-        
-        <link rel="stylesheet" href="/css/fonts.min.css">
-        <link rel="stylesheet" href="/css/particlex.css">
-        
-        <script src="https://cdn.staticfile.org/vue/3.2.33/vue.global.prod.min.js"></script>
-    <meta name="generator" content="Hexo 6.2.0"></head>
-    <body>
-        <div id="loading" style="height:100vh;width:100vw;position:fixed;display:flex;z-index:200;justify-content:space-between;background:#fff;transition:opacity 0.3s ease-out"><div style="position:fixed;height:100vh;width:100vw;display:flex;justify-content:center;align-items:center"><div id="loadcontent" style="width:50vmin;height:50vmin;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px #a3ddfb;text-align:center"><div><h2>LOADING...</h2><p style="word-break:keep-all">加载过慢请开启缓存(浏览器默认开启)</p><div><img alt="loading" src="/loading.gif"></div></div></div></div></div>
-        <div id="layout">
-            <i data-fa-symbol="calendar-solid" class="fa-solid fa-calendar fa-fw"></i>
-            <i data-fa-symbol="bookmark-solid" class="fa-solid fa-bookmark fa-fw"></i>
-            <i data-fa-symbol="tags-solid" class="fa-solid fa-tags fa-fw"></i>
-            <transition name="into">
-                <div v-show="show_page" style="display: -not-none">
-                    <div id="menu_show">
-                         
-<nav id="menu">
-    <div class="desktop-menu">
-        <a href="/">
-            <span class="title">Hexo</span>
-        </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;about</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;archives</span>
-        </a>
-        
-        <a href="/categories">
-            <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;categories</span>
-        </a>
-        
-        <a href="/tags">
-            <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;tags</span>
-        </a>
-        
-    </div>
-    <div :class="'phone-menu ' + menu_show" id="phone-menu">
-        <div class="curtain" @click="menu_show = !menu_show" v-show="menu_show"></div>
-        <div :class="'title'" @click="menu_show = !menu_show">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;Hexo</span>
-        </div>
-        <transition name="slide">
-        <div class="items" v-show="menu_show">
-            
-            <a href="/">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-house fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">home</div>
-                </div>
-            </a>
-            
-            <a href="/about">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-id-card fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">about</div>
-                </div>
-            </a>
-            
-            <a href="/archives">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-box-archive fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">archives</div>
-                </div>
-            </a>
-            
-            <a href="/categories">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-bookmark fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">categories</div>
-                </div>
-            </a>
-            
-            <a href="/tags">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">tags</div>
-                </div>
-            </a>
-            
-        </div>
-        </transition>
-    </div>
-</nav>
-                    </div>
-                    <div id="main">
-                        <div id="home-head">
-    <div id="home-background" style="background-image: url()"></div>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
     
-    <div id="home-info" class="home-info" @click="home_click">
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="loop"></span>
-        <span class="info">
-            <div class="wrap">
-                <h1>Hexo</h1>
-                <h3></h3>
-                <h5></h5>
-            </div>
-        </span>
-    </div>
     
-</div>
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Hexo</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
 
-<div id="home-posts-wrap" class="">
-    <div id="home-posts">
-        <div id="posts">
-            
 
-<div class="post">
-    <a href="/2022/09/04/220901-周四/">
-        <h2 class="post-title">220901-周四</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/4
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><ol>
-<li><p>粗读论文:</p>
-<p>前两篇看了实验（结果）之前的内容，第三篇只看到第一部分，介绍，感觉读起来比较困难，所基于的工作太多不了解。</p>
-<ol>
-<li>Development and Evaluation of a Deep Learning Algorithm for Rib Segmentation and Fracture Detection from Multicenter Chest CT Images</li>
-<li>U-Net: Convolutional Networks for Biomedical Image Segmentation</li>
-<li>Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks</li>
-</ol>
-</li>
-</ol>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/04/220901-周四/" class="go-post">阅读全文</a>
-</div>
+    <!-- Umami Analytics -->
 
-<div class="post">
-    <a href="/2022/09/01/220831-周三/">
-        <h2 class="post-title">220831-周三</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/9/1
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><ol>
-<li>学完《Python Crash Course》附录中对git使用的介绍。</li>
-</ol>
-<h3 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h3><ol>
-<li>《Python Crash Course》这本书真的很好，教的东西简单易上手，教了就会用，但是又不是那种用起来很多盲区很生硬地使用，然后简单的东西逐步累加又能让你在实操过程中完成一些看起来还不错的内容。特别是作者会给初学者很多很不错的建议，让你对一个东西没有完全了解的时候，也能把这个东西用的很舒服，并且这些建议也不会阻碍你后续进一步的学习，反而是有帮助的，让你提前意识到一些东西。学了这本书中关于git的介绍后尤其让我这么感觉。之前学git也看了各种的网上的资料，杂七杂八前前后后投入了近10个小时，但是依然觉得没办法使用git，尽管学那些资料时也有跟着操作。但是看这本书中短短10页的后感觉却完全不一样，尽管教的都是些git中最基本的内容，但是作者巧妙摘取出来的这些基础内容的体系又是完备的，他总能了不起地实现这样的成就，让人学了后便能在这套体系中实现自己的想法，即真正的使用git进行版本管理。虽然我不能犯吃了三个包子觉得吃饱只有最后一个包子的功劳的错误，但我还是能吃出这最后一个包子确实是更好吃的。</li>
-</ol>
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/09/01/220831-周三/" class="go-post">阅读全文</a>
-</div>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
 
-<div class="post">
-    <a href="/2022/08/31/鱿鱼游戏/">
-        <h2 class="post-title">鱿鱼游戏</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/8/31
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>    鱿鱼游戏看完了，它具备标准的好的电视剧的基本要素，但是却不是一部优秀的电视剧。</p>
-<p>    说它好是好在情节设定不至于乏味，剧中的游戏有些趣味，男女主人公演技颜值双在线，剧情主线、支线交替节奏稳妥，扣人心弦，多位角色刻画立体生动。让人想要把剧追下去，整个看完了也不会觉得看了一部烂剧而后悔，总体是满意的。</p>
-<p>    接下来说它不足的地方。</p>
-<p>    它的立意不清，主角从开始到结尾的控诉是“为什么你们可以对人做出这么残忍的事？”，主办方的回应是“我们没有做一件残忍的事，而是给活在地狱的人渣们一次通过公平的竞争改变自己人生的事，而且是参赛者们自愿参加”，对于这样的反驳，主角的追问依然是“为什么你们可以对人做出这么残忍的事”。发现了没，这样以来一回的控诉和辩驳中，其实是两个基本出发的论点的你来我回的死循环，对于这个辩题的进一步探讨是一丁点没有，对于影视主旨探讨可以说是永远停在了一个可悲的开始阶段。</p>
-<p>    游戏的博弈性也不够，木头人和椪糖是各玩各的，房间互杀和最后的鱿鱼对决是蛮力的对决。拔河和走玻璃的危险都在于高空坠落。拔河还不错。高空走玻璃形式上参照了赌博启示录的高空走钢索，但是从设定的完备性，到对人心理上的描写的细腻程度，以及对高空这一要素展现都都远远不及赌博默示录的高空钢索，以下一一举例说明。</p>
-<p>    设定的完备性：玻璃走不了，为什么不抓铁管呢？不管是手脚并用抓一根铁管吊着过去，还是中间两根铁管那么近，趴在两根上面爬着过去都是可以尝试的，当然也很好避免，比如给铁管通电，但是剧中既没有人尝试这样去做，更没有加入通电的设定，结果就给观众心理上留下一个桔梗。而赌博模式录中，主办方要求参赛者以控制身体平衡的方式走过去，当有人手脚并用去抓钢索时，便毫不留情的给钢索通电，直接把那一列的人全部电得摔下去。</p>
-<p>    高空要素的展现：虽然赌博默示录中，本来的场景设定，在城市中的两座高楼间走钢索本来就比在室内高空走玻璃更加刺激，因为一是更高，二是会有高空刮大风的因素。但是，即便抛开这些差别，剧中对高空的因素描写依然十分不足，比如完全没有展现大部分人的恐高心理，似乎把害怕死亡和恐高两者划等号了，事实上这两者却完全不一样，恐高心理会让人在并不很高且十分安全的高处也感到不能自己的害怕。影视中所表现出来的人的害怕，似乎只有对于踩错玻璃摔死的恐惧，只要前面的人把正确的玻璃踩出来了，便可以毫无困难的一一跨域前进，这是十分不符合常理的。还有镜头的对高空的表现显得简略，要么是镜头和桥上的人平齐，不见深不见底的底部，要么是贴在地板上近距离表现摔死人的惨状，使得观众缺少对高空整体的直观感受，我觉得加入桥上参赛者的俯视镜头，和开场时从桥面一端开始，行至桥中间，再往下快速推动的一段展现场地惊险程度的镜头等会给予观众更好的观感。在拔河比赛的高空元素的表现中也有这样的问题存在，但略好一些，毕竟可以看到整队人挂在空中然后摔落的全过程。而人摔下玻璃用推倒模型去表现，我知道它是想表现观赛者谐谑冷酷的态度，但是如果加上真实场景过程的对比会好一些，否者则削弱了这一过程的残酷。</p>
-<p>    心理描述的细腻程度不足：显然在上一部分已经批评了剧中不可思议地忽视了对人的恐高心理的描写。除此之外，既然高空走玻璃包含了博弈元素，那么对于博弈上的心理描写也是不足，而像赌博默示录中则充分描写了这一部分，在钢索的人既想要把前面挡路的人推下去，又害怕之后被后面的人推下去，并且还有把人推下去之后的愧疚心理，加上在高空中高度紧张的状态，所结合产生的一种令人崩溃的绝望。</p>
-<p>    最后只剩弹珠这一场，这一场有相当一部分是给老人后续请假做铺垫，混混那一组真的是当小朋友游戏在玩。尽管和巴铁的对决把尚佑的阴险、无情淋漓尽致地表现了出来，但是整场其实也没有真正的双方斗智斗勇的博弈过程。</p>
-<p>    总结，主旨立意不清，严重缺乏对主题的探讨，这两者可以说是一回事，既然主题表现得很浅很空洞，那么当然让人不知其立意到底是什么，难道就这么简单地靠一句“圣母”口号撑到底么；游戏缺乏博弈，那些有钱的大佬喜欢看人的搏斗，原因难道不很自然的是人和人之间在生死存亡之际的斗智斗勇么，人具备动物般殊死一搏的勇气的同时又拥有自然界最至高无上的智慧，有这两者相互交映的对决才能爆发出这类游戏的无穷魅力，否则只看两个人全靠蛮力的搏斗，又和看斗鸡、斗犬有什么区别呢，就算是就想要看同类之间搏杀时感到的战栗的快感，也有很多现成游戏了，比如搏斗，要血腥残酷赌上性命的也有地下拳击，何必整这么一出。</p>
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.2.0"></head>
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
+<body class="max-width mx-auto px3 ltr">
+    
+    <div class="content index py4 h-card">
         
-        
+          <header id="header">
+  <a class="u-url u-uid" href="/">
+  
+    
+      <img id="logo" alt class="u-logo" src="/images/logo.png" />
+    
+  
+    <div id="title">
+      <h1 class="p-name">Hexo</h1>
     </div>
-    <a href="/2022/08/31/鱿鱼游戏/" class="go-post">阅读全文</a>
-</div>
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#" aria-label="目录"><i class="fa-solid fa-bars fa-2x"></i></a>
+      </li>
+      <!--
+     --><li><a href="/">首页</a></li><!--
+   --><!--
+     --><li><a href="/about/">关于</a></li><!--
+   --><!--
+     --><li><a href="/archives/">归档</a></li><!--
+   --><!--
+     --><li><a target="_blank" rel="noopener" href="http://github.com/probberechts">项目</a></li><!--
+   -->
+    </ul>
+  </div>
+</header>
 
-<div class="post">
-    <a href="/2022/08/31/220831-周二/">
-        <h2 class="post-title">220829-周二</h2>
-    </a>
-    <div class="category-and-date">
         
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/8/31
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><ol>
-<li>学完《Python Crash Course》的Project 2数据可视化中的第3（&#x2F;3）章cp17，使用api从网上（github，hacker news）获取数据并生成可视化图像。</li>
-</ol>
-<h3 id="完成内容"><a href="#完成内容" class="headerlink" title="完成内容"></a>完成内容</h3><ol>
-<li>协助师兄：从视频中提取帧图片，裁剪黑边后加入原先数据，并生成3折的训练数据集。</li>
-</ol>
-<h3 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h3><ol>
-<li>目前进一步学习《Python Crash Course》，完整地学完了3个project中的一个，数据可视化。对于第3个project，构建网页，我还是有点兴趣，但是目前有别的学习内容更急迫一点，比如研读论文，思考科研方向，还有出国规划的事务需要进行，所以暂时不继续学习这块，可能会简单看一下教的内容。至于书后面附录的关于介绍git的使用，虽然在别处看过了一些git教程，但是目前还是不太会用git，所以会把书的这一部分好好看一看，如果他讲得好，我觉得他应该讲得好。</li>
-</ol>
+        <section id="about" class="p-note">
+  
+  
+    <p>
+      在这里找到我：
+      
+      
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="http://github.com/probberechts/cactus-dark" aria-label="github" title="github">
+            <i class="fa-brands fa-github"></i><!--
+      ---></a><!--
+    ---><!--
+    --->， 
+        
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="/" aria-label="twitter" title="twitter">
+            <i class="fa-brands fa-twitter"></i><!--
+      ---></a><!--
+    ---><!--
+    --->， 
+        
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="/" aria-label="facebook" title="facebook">
+            <i class="fa-brands fa-facebook"></i><!--
+      ---></a><!--
+    ---><!--
+    --->， 
+        
+      
+        
+        
+          <a class="icon u-email" target="_blank" rel="noopener" href="mailto:name@email.com" aria-label="mail" title="mail">
+            <i class="fa-solid fa-envelope"></i><!--
+      ---></a>
+        <!--
+    --->， 
+        
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="https://mastodon.social/@alice" aria-label="mastodon.social" title="mastodon.social">
+            <i class="fa-brands fa-mastodon"></i><!--
+      ---></a><!--
+    ---><!--
+    ---> 和 
+        
+      
+        
+        
+          <a class="icon u-url" target="_blank" rel="noopener me" href="https://fosstodon.org/@alice" aria-label="fosstodon.org" title="fosstodon.org">
+            <i class="fa-brands fa-mastodon"></i><!--
+      ---></a><!--
+    ---><!--
+    --->.
+        
+      
+    </p>
+  
+</section>
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
+<section id="writing">
+  <span class="h1"><a href="/archives/">文章</a></span>
+  
+  <ul class="post-list">
+    
+    
+      
+    
+    
+      <li class="post-item">
         
+    <div class="meta">
+      
         
+          <time datetime="2023-04-28T19:45:44.000Z" class="dt-published" itemprop="datePublished">2023-04-29</time>
+        
+      
     </div>
-    <a href="/2022/08/31/220831-周二/" class="go-post">阅读全文</a>
-</div>
 
-<div class="post">
-    <a href="/2022/08/30/220829-周一/">
-        <h2 class="post-title">220829-周一</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/8/30
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><ol>
-<li>学完《Python Crash Course》的Project 2数据可视化中的第2（&#x2F;3）章cp16中关于json部分。</li>
-</ol>
-<h3 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h3><ol>
-<li>掌握了一个可视化世界地图数据的基本方法。</li>
-</ol>
 
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/08/30/220829-周一/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/08/28/220828-周六/">
-        <h2 class="post-title">220828-周六</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/8/28
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><ol>
-<li>第二遍看完了《Python Crash Course》的Project 2数据可视化中的第2（&#x2F;3）章cp16中关于csv部分，把书中之前没敲完的代码敲完了。</li>
-</ol>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/08/28/220828-周六/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/08/27/220827-周五/">
-        <h2 class="post-title">220827-周五</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/8/27
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h3 id="完成内容"><a href="#完成内容" class="headerlink" title="完成内容"></a>完成内容</h3><ol>
-<li><p>搭建该hexo+github博客。</p>
-</li>
-<li><p>《Python Crash Course》的Project 2数据可视化中的第1章（cp15，此project共3章）末尾部分不太清楚地方再看了一遍，开始第二遍看cp16中CSV部分。</p>
-</li>
-</ol>
-<h3 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h3><ol>
-<li><p>搭好这个博客还是挺高兴的。之前用第三方的博客总是对比来对比去，结果最后选出来后也没动手写几篇，过一段时间又想开始写便又开始对比。而用github搭博客早有耳闻但是略感复杂一直没有尝试。今天搭好后觉得挺简单，没有什么难度。而博客内容、形式自己完全可控，github正牌可靠加上搭建起来的仪式感，以及对深度定制、美化自己博客的期望，应该都会让自己更想把这个博客维护好，持续更新下去。</p>
-</li>
-<li><p>不管有没有更想更新博客，搭建这个博客的初衷是记录自己每日所学&#x2F;完成内容，原因之一是避免学到半途迷茫或者飘了的情况，建立投入-（可视化的）进步的反馈机制。所以会坚持更新下去。</p>
-</li>
-</ol>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/08/27/220827-周五/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/08/26/hexo-github博客常用指令/">
-        <h2 class="post-title">Hexo+github博客常用指令</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/8/26
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>&amp;nbsp; </p>
-<p>220826</p>
-<pre><code class="git">hexo new &quot;new_blog&quot;    # 新建博客
-hexo g -d              # 上传到github
-hexo s                 # 生成本地预览链接
-</code></pre>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/08/26/hexo-github博客常用指令/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/08/26/关于博客的一些问题/">
-        <h2 class="post-title">关于博客的一些问题</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/8/26
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <p>220826</p>
-<ol>
-<li>格式化文本在本地md编辑器marktext中和博客中显示风格不一致<ol>
-<li>通常的md显示风格是什么样的<ol start="2">
-<li>博客中如何调整风格</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>关于marktext的问题<ol>
-<li>未格式化文本怎么没有微软雅黑这个字体选项<ol>
-<li>未格式化文本和格式化文本可选字体范围为什么不同</li>
-</ol>
-</li>
-<li>有无更加流行好用的md编辑器<ol>
-<li>和typora比较有什么差异，typora值得购买吗</li>
-<li>感觉没必要，如果免费就可以满足目前需求</li>
-</ol>
-</li>
-<li>感觉marktext行间距有点小</li>
-<li>为什么打开marktext不能自动显示之前的工作目录，要重新打开文件夹？<ol>
-<li>怎么设置</li>
-<li>设置中没有记忆之前工作目录的功能，只能设置一个默认启动目录或者只打开一个空白页，现在设置为了blog文件夹</li>
-</ol>
-</li>
-<li>编辑器页面怎么左右留空白这么多，如何去掉</li>
-<li>人麻了，刚刚发现marktext中ctrl+z没办法撤销操作，没有这个操作我简直不会编辑了一样，但是设置中快捷键那里也标明了这是撤销操作，就感觉这个软件的快捷键操作有点糟心，怎么解决不能撤销的问题？<ol>
-<li>后来又可以了，不知道是什么原因导致该现象发生</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>目前还不会插入图片到博客中，之间添加在本地md文件的图片是以超链接的形式显示在文本中<ol>
-<li>感觉用图床的方法有点麻烦，有时就想随手快速的截图然后直接粘贴到正在编辑的内容中</li>
-</ol>
-</li>
-<li>怎么输出空行，目前的方法’&amp;nbsp’在本地可以显示为空行，但是在博客中直接显示字符串了</li>
-</ol>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/08/26/关于博客的一些问题/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/08/26/my-first-blog/">
-        <h2 class="post-title">My-First-Blog</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="date">
-            <span class="icon">
-                <svg class="fa-icon"><use xlink:href="#calendar-solid"></use></svg>
-            </span>
-            2022/8/26
-        </span>
-    </div>
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h1 id="标题一"><a href="#标题一" class="headerlink" title="标题一"></a>标题一</h1><h2 id="标题二"><a href="#标题二" class="headerlink" title="标题二"></a>标题二</h2><h3 id="标题三"><a href="#标题三" class="headerlink" title="标题三"></a>标题三</h3><h4 id="标题四"><a href="#标题四" class="headerlink" title="标题四"></a>标题四</h4><h5 id="标题五"><a href="#标题五" class="headerlink" title="标题五"></a>标题五</h5><h6 id="标题六"><a href="#标题六" class="headerlink" title="标题六"></a>标题六</h6><p>第一段</p>
-<p>第二段</p>
-<p><em>斜体文本</em><br><em>斜体文本</em><br><strong>粗体文本</strong><br><strong>粗体文本</strong><br><em><strong>粗斜体文本</strong></em><br><em><strong>粗斜体文本</strong></em></p>
-<h3 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h3><p>三个以上的星号、减号、下划线来建立(可以隔开)</p>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<p>删除线</p>
-<p><del>文本</del></p>
-<p><u>这是一个有下划线的文本</u></p>
-<h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><ul>
-<li><p>第一项</p>
-</li>
-<li><p>第二项</p>
-</li>
-</ul>
-<ul>
-<li><p>第一项</p>
-</li>
-<li><p>第二项</p>
-</li>
-</ul>
-<ul>
-<li><p>第一项</p>
-</li>
-<li><p>第二项</p>
-</li>
-</ul>
-<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3><ol>
-<li><p>第一项</p>
-</li>
-<li><p>第二项</p>
-</li>
-</ol>
-<h3 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h3><ol>
-<li><p>第一项</p>
-<ul>
-<li><p>a</p>
-</li>
-<li><p>b</p>
-</li>
-</ul>
-</li>
-<li><p>第二项</p>
-<ul>
-<li><p>a</p>
-</li>
-<li><p>b</p>
-</li>
-</ul>
-</li>
-<li><p>第一项</p>
-<ol>
-<li><p>a</p>
-</li>
-<li><p>b</p>
-</li>
-</ol>
-</li>
-<li><p>第二项</p>
-<ol>
-<li><p>a</p>
-</li>
-<li><p>b</p>
-</li>
-</ol>
-</li>
-</ol>
-<blockquote>
-<p>引用</p>
-<blockquote>
-<p>2</p>
-<blockquote>
-<p>  3</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><pre><code class="python">    print(&quot;Hello, world!&quot;)
-</code></pre>
-<h3 id="链接插入"><a href="#链接插入" class="headerlink" title="链接插入"></a>链接插入</h3><p><a target="_blank" rel="noopener" href="https://mrhuanhao.cn/">https://mrhuanhao.cn/</a></p>
-<p><a target="_blank" rel="noopener" href="https://mrhuanhao.cn/">huanhao的主页</a></p>
-<p><a target="_blank" rel="noopener" href="https://mrhuanhao.cn/">https://mrhuanhao.cn/</a></p>
-<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><p><img src="/%E5%9B%BE%E7%89%87%E7%9A%84%E9%93%BE%E6%8E%A5" alt="图片描述"></p>
-<h3 id="插入表格"><a href="#插入表格" class="headerlink" title="插入表格"></a>插入表格</h3><table>
-<thead>
-<tr>
-<th align="center">表头</th>
-<th align="center">表头</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">a</td>
-<td align="center">b</td>
-<td></td>
-</tr>
-<tr>
-<td align="center"></td>
-<td align="center"></td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><p>\   反斜线<br>&#96;   反引号</p>
-<ul>
-<li><p>星号<br>_   下划线<br>{}  花括号<br>[]  方括号<br>()  小括号</p>
-<h1 id="井字号"><a href="#井字号" class="headerlink" title="井字号"></a>井字号</h1></li>
-</ul>
-<ul>
-<li>加号</li>
-</ul>
-<ul>
-<li>减号<br>.   英文句点<br>!   感叹号</li>
-</ul>
-<h3 id="空行"><a href="#空行" class="headerlink" title="空行"></a>空行</h3><p>&amp;nbsp;</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-    </div>
-    <a href="/2022/08/26/my-first-blog/" class="go-post">阅读全文</a>
-</div>
-
-             
-<div class="page-current">
-    <div class="prev">
-        
-        <a href="/page/3/">
-            <span class="page-num">
-                <i class="fa-solid fa-caret-left fa-fw"></i>
-            </span>
-        </a>
-        
-    </div>
-    <div class="page-index">
-        
         <span>
-            
-            <a href="/"><span class="page-num">1</span></a>
-            <span class="page-omit">...</span>
-            
-            
-                
-                
-                <a href="/page/2">
-                    <span class="page-num">
-                        2
-                    </span>
-                </a>
-                
-            
-            <a href="/page/3/">
-                <span class="page-num">
-                    3
-                </span>
-            </a>
-        </span>
+    
+        <a class="" href="/2023/04/29/230429/">230429</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
         
-        <span class="current">
-            4
-        </span>
+    <div class="meta">
+      
         
+          <time datetime="2022-10-30T16:00:41.000Z" class="dt-published" itemprop="datePublished">2022-10-31</time>
+        
+      
+    </div>
+
+
         <span>
-            <a href="/page/5/">
-                <span class="page-num">
-                    5
-                </span>
-            </a>
-            
-            
-        </span>
-        
-    </div>
-    <div class="next">
-        
-        <a href="/page/5/ ">
-            <span class="page-num">
-                <i class="fa-solid fa-caret-right fa-fw"></i>
-            </span>
-        </a>
-        
-    </div>
-</div>
-        </div>
-    </div>
     
-    <div id="home-card">
-        <div id="card-div">
-    <div class="card-style" style="width: 300px">
-        <div class="avatar">
-            <img src=" " alt="avatar">
-        </div>
-        <div class="name">
-            John Doe
-        </div>
-        <div class="descriptions">
-            
-            <div class="description">
-                Description...
-            </div>
-            
-        </div>
-        <div class="icon-links">
-            
-        </div>
-        <div class="friend-links">
-            
-        </div>
-    </div>
-</div>
-    </div>
+        <a class="" href="/2022/10/31/221030-%E5%91%A8%E6%97%A5/">221030-周日</a>
     
-</div>
-                         
-<footer id="footer">
-    <div class="footer-wrap">
-        <div>
-            © 20xx - 2023 Hexo
-            <span class="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            @John Doe
-        </div>
-        <div></div>
-        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
-                target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a></div>
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
         
+    <div class="meta">
+      
+        
+          <time datetime="2022-10-29T16:58:02.000Z" class="dt-published" itemprop="datePublished">2022-10-30</time>
+        
+      
     </div>
+
+
+        <span>
+    
+        <a class="" href="/2022/10/30/221029-%E5%91%A8%E5%85%AD/">221029-周六</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2022-10-29T16:48:14.000Z" class="dt-published" itemprop="datePublished">2022-10-30</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2022/10/30/221028-%E5%91%A8%E4%BA%94/">221028-周五</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+      
+        
+          <time datetime="2022-10-27T18:35:03.000Z" class="dt-published" itemprop="datePublished">2022-10-28</time>
+        
+      
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2022/10/28/221027-%E5%91%A8%E5%9B%9B/">221027-周四</a>
+    
+
+
+</span>
+      </li>
+    
+  </ul>
+  
+</section>
+
+
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2023
+    John Doe
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/probberechts">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
 </footer>
-                    </div>
-                </div>
-            </transition>
-            <div id="img_show">
-                <img id="img_content" alt="img_show">
-            </div>
-        </div>
-        <script src="https://cdn.staticfile.org/highlight.js/11.5.1/highlight.min.js"></script>
-        <script src="/js/particlex.js"></script>
-        <script src="/js/showimg.js"></script>
-        
 
-    </body>
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
 </html>
