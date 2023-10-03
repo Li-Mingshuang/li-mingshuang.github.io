@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="本文根据gpt3.5回答撰写   如果你希望统计包含目标文本的单元格数量，并计入合并单元格合并前的数量，可以使用以下的 VBA 代码来实现： vba Function CountMergedCellsContainingText(rng As Range, targetText As String) As Long     Dim cell As Range     Dim count As Lo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Excel：统计包含特定文本的单元格数量">
+<meta property="og:url" content="http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本文根据gpt3.5回答撰写   如果你希望统计包含目标文本的单元格数量，并计入合并单元格合并前的数量，可以使用以下的 VBA 代码来实现： vba Function CountMergedCellsContainingText(rng As Range, targetText As String) As Long     Dim cell As Range     Dim count As Lo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-03T13:14:22.000Z">
+<meta property="article:modified_time" content="2023-10-03T13:15:45.850Z">
+<meta property="article:author" content="Li Mingshuang">
+<meta property="article:tag" content="解决方案">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Excel：统计包含特定文本的单元格数量</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/Li-Mingshuang">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2023/09/19/%E6%84%9F%E8%B0%A2%E8%AE%BF%E9%97%AE%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&text=Excel：统计包含特定文本的单元格数量"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&title=Excel：统计包含特定文本的单元格数量"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&is_video=false&description=Excel：统计包含特定文本的单元格数量"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Excel：统计包含特定文本的单元格数量&body=Check out this article: http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&title=Excel：统计包含特定文本的单元格数量"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&title=Excel：统计包含特定文本的单元格数量"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&title=Excel：统计包含特定文本的单元格数量"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&title=Excel：统计包含特定文本的单元格数量"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&name=Excel：统计包含特定文本的单元格数量&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&t=Excel：统计包含特定文本的单元格数量"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Excel：统计包含特定文本的单元格数量
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Li Mingshuang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-10-03T13:14:22.000Z" class="dt-published" itemprop="datePublished">2023-10-03</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="tag">解决方案</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p><strong>本文根据gpt3.5回答撰写</strong>  </p>
+<p>如果你希望统计包含目标文本的单元格数量，并计入合并单元格合并前的数量，可以使用以下的 VBA 代码来实现：</p>
+<p>vba</p>
+<pre><code class="vb">Function CountMergedCellsContainingText(rng As Range, targetText As String) As Long
+    Dim cell As Range
+    Dim count As Long
+    Dim mergedCell As Range
+    Dim cellValue As String
+
+    count = 0
+
+    For Each cell In rng
+        If cell.MergeCells Then
+            &#39; 对于合并单元格，遍历合并区域内的每个单元格
+            For Each mergedCell In cell.MergeArea
+                cellValue = mergedCell.Value
+                If InStr(1, cellValue, targetText, vbTextCompare) &gt; 0 Then
+                    &#39; 如果合并单元格内包含目标文本，增加计数
+                    count = count + 1
+                    Exit For &#39; 终止循环，只计数一次
+                End If
+            Next mergedCell
+        Else
+            &#39; 对于非合并单元格，检查单元格的值是否包含目标文本
+            cellValue = cell.Value
+            If InStr(1, cellValue, targetText, vbTextCompare) &gt; 0 Then
+                count = count + 1
+            End If
+        End If
+    Next cell
+
+    CountMergedCellsContainingText = count
+End Function
+</code></pre>
+<p>这个修正后的 VBA 代码会遍历合并单元格中的每个单元格，检查它们是否包含目标文本，并在合并前计数满足条件的单元格。如果合并单元格中的任何单元格包含目标文本，将增加计数并退出合并单元格的循环以避免重复计数。</p>
+<p>你可以在 Excel 工作表中使用 <code>CountMergedCellsContainingText</code> 函数来执行这个操作，如下所示：</p>
+<p>excel</p>
+<pre><code class="vb">=CountMergedCellsContainingText(A1:B2, &quot;目标文本&quot;)
+</code></pre>
+<p>这将统计 A1 到 B2 范围内包含 “目标文本” 的合并单元格数量，同时考虑合并前的数量。</p>
+<p><strong>为什么“对于合并单元格，遍历合并区域内的每个单元格”</strong></p>
+<p>ChatGPT<br>对于合并单元格，需要遍历合并区域内的每个单元格，主要是因为合并单元格实际上是一个单一的视觉单元，但在 Excel 内部，它们是由多个单元格组成的。因此，如果你想要在合并单元格中查找特定的文本或执行其他操作，你需要遍历合并区域内的每个单元格来检查其内容。</p>
+<p>合并单元格的特点包括：</p>
+<ol>
+<li><p><strong>外观上的统一性：</strong> 合并单元格在外观上看起来像一个单元格，通常用于创建表格中的标题、标签或其他内容，以提高可视化效果。</p>
+</li>
+<li><p><strong>内部的多个单元格：</strong> 从数据存储的角度看，合并单元格实际上是由多个单元格组成的。只有合并单元格中的第一个单元格包含真正的数据，其他单元格可能为空。</p>
+</li>
+</ol>
+<p>因此，如果你要在合并单元格中执行操作，例如查找特定文本，你需要遍历合并区域内的每个单元格，以确保不会漏掉包含目标文本的单元格。这可以通过循环遍历合并单元格内的每个单元格来实现，然后检查它们的内容以确定是否满足条件。</p>
+<p>在上面提供的修正后的 VBA 代码中，我们遍历合并单元格的每个单元格，以确保不会错过任何包含目标文本的情况，并在找到满足条件的单元格后退出循环，以避免重复计数。这样可以确保在合并单元格中准确地计算包含目标文本的单元格数量。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/Li-Mingshuang">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&text=Excel：统计包含特定文本的单元格数量"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&title=Excel：统计包含特定文本的单元格数量"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&is_video=false&description=Excel：统计包含特定文本的单元格数量"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Excel：统计包含特定文本的单元格数量&body=Check out this article: http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&title=Excel：统计包含特定文本的单元格数量"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&title=Excel：统计包含特定文本的单元格数量"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&title=Excel：统计包含特定文本的单元格数量"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&title=Excel：统计包含特定文本的单元格数量"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&name=Excel：统计包含特定文本的单元格数量&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/&t=Excel：统计包含特定文本的单元格数量"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022-2023
+    Li Mingshuang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/Li-Mingshuang">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
