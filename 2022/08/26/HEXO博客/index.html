@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="博客变更log231105 改用obsidian管理博客库（source） 附件（图片）存放在’source&#x2F;images&#x2F;‘路径 附件链接使用基于笔记的相对路径 博客存放在’source&#x2F;_post‘   添加数学公式支持（存在问题）  hexo-github博客常用指令hexo new &quot;new_blog&quot;    # 新建博客 hexo g -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HEXO博客">
+<meta property="og:url" content="http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="博客变更log231105 改用obsidian管理博客库（source） 附件（图片）存放在’source&#x2F;images&#x2F;‘路径 附件链接使用基于笔记的相对路径 博客存放在’source&#x2F;_post‘   添加数学公式支持（存在问题）  hexo-github博客常用指令hexo new &quot;new_blog&quot;    # 新建博客 hexo g -">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-26T08:00:09.000Z">
+<meta property="article:modified_time" content="2023-11-05T11:03:20.288Z">
+<meta property="article:author" content="Li Mingshuang">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>HEXO博客</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/Li-Mingshuang">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2022/08/26/hexo-github%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2022/08/26/my-first-blog/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&text=HEXO博客"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&title=HEXO博客"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&is_video=false&description=HEXO博客"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=HEXO博客&body=Check out this article: http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&title=HEXO博客"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&title=HEXO博客"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&title=HEXO博客"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&title=HEXO博客"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&name=HEXO博客&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&t=HEXO博客"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%9B%B4log"><span class="toc-number">1.</span> <span class="toc-text">博客变更log</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#231105"><span class="toc-number">1.1.</span> <span class="toc-text">231105</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-github%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">hexo-github博客常用指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">标签设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%94%AF%E6%8C%81"><span class="toc-number">4.</span> <span class="toc-text">数学公式支持</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#231105-1"><span class="toc-number">4.1.</span> <span class="toc-text">231105</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E6%83%85%E5%86%B5%EF%BC%9A"><span class="toc-number">4.1.1.</span> <span class="toc-text">当前情况：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#220826"><span class="toc-number">5.1.</span> <span class="toc-text">220826</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        HEXO博客
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Li Mingshuang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-08-26T08:00:09.000Z" class="dt-published" itemprop="datePublished">2022-08-26</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="博客变更log"><a href="#博客变更log" class="headerlink" title="博客变更log"></a>博客变更log</h2><h3 id="231105"><a href="#231105" class="headerlink" title="231105"></a>231105</h3><ul>
+<li>改用obsidian管理博客库（source）<ul>
+<li>附件（图片）存放在’source&#x2F;images&#x2F;‘路径</li>
+<li>附件链接使用基于笔记的相对路径</li>
+<li>博客存放在’source&#x2F;_post‘</li>
+</ul>
+</li>
+<li>添加数学公式支持（存在问题）</li>
+</ul>
+<h2 id="hexo-github博客常用指令"><a href="#hexo-github博客常用指令" class="headerlink" title="hexo-github博客常用指令"></a>hexo-github博客常用指令</h2><pre><code class="git">hexo new &quot;new_blog&quot;    # 新建博客
+hexo g -d              # 上传到github
+hexo s                 # 生成本地预览链接
+</code></pre>
+<h2 id="标签设置"><a href="#标签设置" class="headerlink" title="标签设置"></a>标签设置</h2><p>标签设置<br>tags:<br>- tag<br>- tag2</p>
+<h2 id="数学公式支持"><a href="#数学公式支持" class="headerlink" title="数学公式支持"></a>数学公式支持</h2><h3 id="231105-1"><a href="#231105-1" class="headerlink" title="231105"></a>231105</h3><p>发现博客中公式无法正常显示。<br>先是参考这两个链接试图安装hexo-math插件。<br><a target="_blank" rel="noopener" href="https://typewind.github.io/2017/03/12/mathjax/">Using Hexo MathJax and Writing LaTex Equations</a><br><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-math">hexo-math</a><br>命令在git shell中会报错</p>
+<pre><code class="shell">lms@DESKTOP-GGO5AQ6 MINGW64 /d/myFiles/blog
+$ npm i hexo-math --save
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+npm ERR! code 1
+npm ERR! path D:\myFiles\blog\node_modules\_hexo@6.2.0@hexo
+npm ERR! command failed
+npm ERR! command C:\WINDOWS\system32\cmd.exe /d /s /c husky install
+npm ERR! &#39;husky&#39; is not recognized as an internal or external command,
+npm ERR! operable program or batch file.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\lms\AppData\Local\npm-cache\_logs\2023-11-05T10_23_42_060Z-debug-0.log
+(base)
+</code></pre>
+<p>于是用的anaconda prompt shell来安装，也不知道安装成功没有，但是还是无法显示公式。</p>
+<pre><code class="shell">(base) C:\Users\lms&gt;npm install hexo-math --save
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+
+added 29 packages, and audited 30 packages in 7s
+
+7 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+(base) C:\Users\lms&gt;hexo
+Usage: hexo &lt;command&gt;
+
+Commands:
+  help     Get help on a command.
+  init     Create a new Hexo folder.
+  version  Display version information.
+
+Global Options:
+  --config  Specify config file instead of using _config.yml
+  --cwd     Specify the CWD
+  --debug   Display all verbose messages in the terminal
+  --draft   Display draft posts
+  --safe    Disable all plugins and scripts
+  --silent  Hide output on console
+
+For more help, you can use &#39;hexo help [command]&#39; for the detailed information
+or you can check the docs: http://hexo.io/docs/
+</code></pre>
+<p>后来看<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/sunfove/article/details/111106363">Hexo中使用插入数学公式</a><br>这个说要改主题中的设置<br><a target="_blank" rel="noopener" href="https://nathaniel.blog/tutorials/make-hexo-support-math-again/index.html">Make Hexo Support Math (LaTeX) Again</a><br>发现cautus主题中有</p>
+<pre><code class="yaml">mathjax:
+  enabled: False
+</code></pre>
+<p>设置成True后，公式可以显示。<br>不知道是只要打开这个就可以渲染公式，还是前面一系列操作加这个。</p>
+<p>看到<a target="_blank" rel="noopener" href="https://nathaniel.blog/tutorials/make-hexo-support-math-again/index.html">Make Hexo Support Math (LaTeX) Again</a>中说hexo-math已经被弃用，<br>试图在anaconda prompt中卸载hexo-math，报错</p>
+<pre><code class="shell">(base) D:\myFiles\blog&gt;npm uninstall hexo-math --save
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+npm ERR! code 1
+npm ERR! path D:\myFiles\blog\node_modules\_acorn@8.8.0@acorn
+npm ERR! command failed
+npm ERR! command C:\WINDOWS\system32\cmd.exe /d /s /c cd ..; npm run build:main
+npm ERR! ϵͳ�Ҳ���ָ����·����
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\lms\AppData\Local\npm-cache\_logs\2023-11-05T10_50_09_458Z-debug-0.log
+</code></pre>
+<h4 id="当前情况："><a href="#当前情况：" class="headerlink" title="当前情况："></a>当前情况：</h4><p>站点config不做修改<br>主题config</p>
+<pre><code class="yaml">mathjax:
+  # enabled: False
+  enabled: True
+</code></pre>
+<p>大部分公式可以正常显示<br>两个多行公式靠在一起无法渲染，以及多行公式无法渲染<br>$$<br>\begin{align}<br>x_{t-1}&#x3D;\sqrt{1-\beta_t}<em>x_t+\sqrt\beta_t</em>\epsilon \<br>\epsilon\sim \mathrm N(\mathbf0,I); \beta_1,\beta_2,…,\beta_T<br>\end{align}<br>$$</p>
+<p>$$<br>x_{t-1}&#x3D;\sqrt{1-\beta_t}<em>x_t+\sqrt\beta_t</em>\epsilon \<br>$$<br>$$<br>\epsilon\sim \mathrm N(\mathbf0,I); \beta_1,\beta_2,…,\beta_T<br>$$</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="220826"><a href="#220826" class="headerlink" title="220826"></a>220826</h3><ol>
+<li>格式化文本在本地md编辑器marktext中和博客中显示风格不一致<ol>
+<li>通常的md显示风格是什么样的<ol start="2">
+<li>博客中如何调整风格</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>关于marktext的问题<ol>
+<li>未格式化文本怎么没有微软雅黑这个字体选项<ol>
+<li>未格式化文本和格式化文本可选字体范围为什么不同</li>
+</ol>
+</li>
+<li>有无更加流行好用的md编辑器<ol>
+<li>和typora比较有什么差异，typora值得购买吗</li>
+<li>感觉没必要，如果免费就可以满足目前需求</li>
+</ol>
+</li>
+<li>感觉marktext行间距有点小</li>
+<li>为什么打开marktext不能自动显示之前的工作目录，要重新打开文件夹？<ol>
+<li>怎么设置</li>
+<li>设置中没有记忆之前工作目录的功能，只能设置一个默认启动目录或者只打开一个空白页，现在设置为了blog文件夹</li>
+</ol>
+</li>
+<li>编辑器页面怎么左右留空白这么多，如何去掉</li>
+<li>人麻了，刚刚发现marktext中ctrl+z没办法撤销操作，没有这个操作我简直不会编辑了一样，但是设置中快捷键那里也标明了这是撤销操作，就感觉这个软件的快捷键操作有点糟心，怎么解决不能撤销的问题？<ol>
+<li>后来又可以了，不知道是什么原因导致该现象发生</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>目前还不会插入图片到博客中，之间添加在本地md文件的图片是以超链接的形式显示在文本中<ol>
+<li>感觉用图床的方法有点麻烦，有时就想随手快速的截图然后直接粘贴到正在编辑的内容中</li>
+</ol>
+</li>
+<li>怎么输出空行，目前的方法’&amp;nbsp’在本地可以显示为空行，但是在博客中直接显示字符串了</li>
+</ol>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/Li-Mingshuang">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E5%8F%98%E6%9B%B4log"><span class="toc-number">1.</span> <span class="toc-text">博客变更log</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#231105"><span class="toc-number">1.1.</span> <span class="toc-text">231105</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-github%E5%8D%9A%E5%AE%A2%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">hexo-github博客常用指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">标签设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%94%AF%E6%8C%81"><span class="toc-number">4.</span> <span class="toc-text">数学公式支持</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#231105-1"><span class="toc-number">4.1.</span> <span class="toc-text">231105</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E6%83%85%E5%86%B5%EF%BC%9A"><span class="toc-number">4.1.1.</span> <span class="toc-text">当前情况：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#220826"><span class="toc-number">5.1.</span> <span class="toc-text">220826</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&text=HEXO博客"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&title=HEXO博客"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&is_video=false&description=HEXO博客"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=HEXO博客&body=Check out this article: http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&title=HEXO博客"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&title=HEXO博客"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&title=HEXO博客"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&title=HEXO博客"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&name=HEXO博客&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/08/26/HEXO%E5%8D%9A%E5%AE%A2/&t=HEXO博客"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022-2023
+    Li Mingshuang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/Li-Mingshuang">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
