@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="学习内容 看完吴恩达深度学习视频中关于对象检测部分。  完成内容 更改博客主题。  研究hexo+github博客如何插入图片：想直接使用github作为图床；目前还没搞定。  我去，发完这一则博客后突然发现test文件中的图片可以正常在博客主页显示了。之前碰到的问题是，npm安装包报错，所以查到的两个方法中分别使用的两个包都没安装成功：hexo-asset-image，hexo-renderer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="220905-周一">
+<meta property="og:url" content="http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="学习内容 看完吴恩达深度学习视频中关于对象检测部分。  完成内容 更改博客主题。  研究hexo+github博客如何插入图片：想直接使用github作为图床；目前还没搞定。  我去，发完这一则博客后突然发现test文件中的图片可以正常在博客主页显示了。之前碰到的问题是，npm安装包报错，所以查到的两个方法中分别使用的两个包都没安装成功：hexo-asset-image，hexo-renderer">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-05T17:42:41.000Z">
+<meta property="article:modified_time" content="2022-09-06T09:49:21.253Z">
+<meta property="article:author" content="Li Mingshuang">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>220905-周一</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/Li-Mingshuang">Projects</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2022/09/07/%E6%97%A5%E5%BF%97/220906-%E5%91%A8%E4%BA%8C/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2022/09/05/test/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&text=220905-周一"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&title=220905-周一"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&is_video=false&description=220905-周一"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=220905-周一&body=Check out this article: http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&title=220905-周一"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&title=220905-周一"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&title=220905-周一"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&title=220905-周一"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&name=220905-周一&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&t=220905-周一"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E5%86%85%E5%AE%B9"><span class="toc-number">1.</span> <span class="toc-text">学习内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%88%90%E5%86%85%E5%AE%B9"><span class="toc-number">2.</span> <span class="toc-text">完成内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%9F%E6%83%B3"><span class="toc-number">3.</span> <span class="toc-text">感想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%8E%E6%97%A5%E8%AE%A1%E5%88%92"><span class="toc-number">4.</span> <span class="toc-text">明日计划</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        220905-周一
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Li Mingshuang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-09-05T17:42:41.000Z" class="dt-published" itemprop="datePublished">2022-09-06</time>
+        
+        (Updated: <time datetime="2022-09-06T09:49:21.253Z" class="dt-updated" itemprop="dateModified">2022-09-06</time>)
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><ol>
+<li>看完吴恩达深度学习视频中关于对象检测部分。</li>
+</ol>
+<h3 id="完成内容"><a href="#完成内容" class="headerlink" title="完成内容"></a>完成内容</h3><ol>
+<li><p>更改博客主题。</p>
+</li>
+<li><p>研究hexo+github博客如何插入图片：想直接使用github作为图床；目前还没搞定。</p>
+<ol>
+<li>我去，发完这一则博客后突然发现test文件中的图片可以正常在博客主页显示了。之前碰到的问题是，npm安装包报错，所以查到的两个方法中分别使用的两个包都没安装成功：hexo-asset-image，hexo-renderer-marked。我也不确定是否真的没安装成功，反正都报同样我没看明天的错误，并没提示安装成功的消息。唯独进行的先是自动把图片保存在博客文档同目录下，后来改成保存到’blog&#x2F;source&#x2F;images&#x2F;md’文件名中。现在发现图片可以显示后，看了一下github页面，发现图片被传到了库中images&#x2F;test文件夹中。还有把config中上传asset文件夹也设为了True。</li>
+<li>如果上述都没错的话，那么看来不需要安装包，只需要进行这样的设置就可以自动把图片上传到github上并显示在博客中了。</li>
+<li>研究的时候在哪里看到说hexo每次上传博客到github中是重新上传整个目录中全部文件，所以要另外开个库把图片存在那个库中，再怎么引用一下，md链接或者其他方法？但是我觉得hexo设置应该不会这么蠢吧，应该就是遵循一般库push时候修改增量删量的方法？没有必要不按照这样的规则来。</li>
+</ol>
+</li>
+</ol>
+<h3 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h3><ol>
+<li>mark text作为编辑器属实不太行，编辑的时候各种小bug不断，比如会突然：光标不能正常移动；不能撤销；非源码模式文本格式不能显现；有标号换行时缩进不能正常调整等等。以至于即便打不到今天这么多的内容的文本（其实很少），也必须源码模式和非源码模式来回切换，使得自己能正确调整格式，后来干脆就直接在源码格式下输入了。<ol>
+<li>似乎又不怎么更新，我这目前就是最新版还有这么多问题，先看下它有没更新解决bug的计划，不然还是得寻找替代品。</li>
+<li>如果源码格式没有什么bug的话，只在源码格式下进行编辑，非源码格式下预览也不是完全不能接受，毕竟我现在了解到的流行的md编辑器中具有所见即所得的功能的也不是很多。</li>
+</ol>
+</li>
+</ol>
+<h3 id="明日计划"><a href="#明日计划" class="headerlink" title="明日计划"></a>明日计划</h3><ol>
+<li><p>精读完：</p>
+<p>Development and Evaluation of a Deep Learning Algorithm for Rib Segmentation and Fracture Detection from Multicenter Chest CT Images</p>
+</li>
+</ol>
+<p>    1. 看完2篇依赖模型的论文。</p>
+<ol start="2">
+<li>看下YOLO论文，有可能的话跑下YOLO代码，看下能用YOLO干什么有意思事情。</li>
+</ol>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/Li-Mingshuang">Projects</a></li>
+        
+          <li><a href="/tags/">Tag</a></li>
+        
+          <li><a href="/categories/">Category</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E5%86%85%E5%AE%B9"><span class="toc-number">1.</span> <span class="toc-text">学习内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%88%90%E5%86%85%E5%AE%B9"><span class="toc-number">2.</span> <span class="toc-text">完成内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%9F%E6%83%B3"><span class="toc-number">3.</span> <span class="toc-text">感想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%8E%E6%97%A5%E8%AE%A1%E5%88%92"><span class="toc-number">4.</span> <span class="toc-text">明日计划</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&text=220905-周一"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&title=220905-周一"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&is_video=false&description=220905-周一"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=220905-周一&body=Check out this article: http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&title=220905-周一"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&title=220905-周一"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&title=220905-周一"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&title=220905-周一"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&name=220905-周一&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2022/09/06/%E6%97%A5%E5%BF%97/220905-%E5%91%A8%E4%B8%80/&t=220905-周一"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022-2023
+    Li Mingshuang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/Li-Mingshuang">Projects</a></li><!--
+     --><!--
+       --><li><a href="/tags/">Tag</a></li><!--
+     --><!--
+       --><li><a href="/categories/">Category</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
