@@ -6,17 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="本文根据gpt3.5回答撰写   如果你希望统计包含目标文本的单元格数量，并计入合并单元格合并前的数量，可以使用以下的 VBA 代码来实现： vba Function CountMergedCellsContainingText(rng As Range, targetText As String) As Long     Dim cell As Range     Dim count As Lo">
+    <meta name="description" content="本文根据gpt3.5回答撰写   如果你希望统计包含目标文本的单元格数量，并计入合并单元格合并前的数量，可以使用以下的 VBA 代码来实现： vba 123456789101112131415161718192021222324252627282930Function CountMergedCellsContainingText(rng As Range, targetText As String">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Excel：统计包含特定文本的单元格数量">
 <meta property="og:url" content="http://example.com/2023/10/03/Excel%EF%BC%9A%E7%BB%9F%E8%AE%A1%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E6%96%87%E6%9C%AC%E7%9A%84%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E9%87%8F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="本文根据gpt3.5回答撰写   如果你希望统计包含目标文本的单元格数量，并计入合并单元格合并前的数量，可以使用以下的 VBA 代码来实现： vba Function CountMergedCellsContainingText(rng As Range, targetText As String) As Long     Dim cell As Range     Dim count As Lo">
+<meta property="og:description" content="本文根据gpt3.5回答撰写   如果你希望统计包含目标文本的单元格数量，并计入合并单元格合并前的数量，可以使用以下的 VBA 代码来实现： vba 123456789101112131415161718192021222324252627282930Function CountMergedCellsContainingText(rng As Range, targetText As String">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-03T13:14:22.000Z">
-<meta property="article:modified_time" content="2023-10-03T13:15:45.850Z">
+<meta property="article:modified_time" content="2023-11-13T09:09:41.803Z">
 <meta property="article:author" content="Li Mingshuang">
-<meta property="article:tag" content="解决方案">
+<meta property="article:tag" content="tool">
+<meta property="article:tag" content="solution">
 <meta name="twitter:card" content="summary">
     
     
@@ -78,7 +79,7 @@
     <span id="nav">
       <ul>
         <!--
-       --><li><a href="/">Home</a></li><!--
+       --><li><a href="/about/">Home</a></li><!--
      --><!--
        --><li><a href="/about/">About</a></li><!--
      --><!--
@@ -155,7 +156,7 @@
       
         <time datetime="2023-10-03T13:14:22.000Z" class="dt-published" itemprop="datePublished">2023-10-03</time>
         
-        (Updated: <time datetime="2023-10-03T13:15:45.850Z" class="dt-updated" itemprop="dateModified">2023-10-03</time>)
+        (Updated: <time datetime="2023-11-13T09:09:41.803Z" class="dt-updated" itemprop="dateModified">2023-11-13</time>)
         
       
     </div>
@@ -166,7 +167,7 @@
       
     <div class="article-tag">
         <i class="fa-solid fa-tag"></i>
-        <a class="p-category" href="/tags/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="tag">解决方案</a>
+        <a class="p-category" href="/tags/solution/" rel="tag">solution</a>, <a class="p-category" href="/tags/tool/" rel="tag">tool</a>
     </div>
 
 
@@ -178,42 +179,13 @@
     <p><strong>本文根据gpt3.5回答撰写</strong>  </p>
 <p>如果你希望统计包含目标文本的单元格数量，并计入合并单元格合并前的数量，可以使用以下的 VBA 代码来实现：</p>
 <p>vba</p>
-<pre><code class="vb">Function CountMergedCellsContainingText(rng As Range, targetText As String) As Long
-    Dim cell As Range
-    Dim count As Long
-    Dim mergedCell As Range
-    Dim cellValue As String
+<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Function</span> CountMergedCellsContainingText(rng <span class="keyword">As</span> Range, targetText <span class="keyword">As</span> <span class="type">String</span>) <span class="keyword">As</span> <span class="type">Long</span></span><br><span class="line">    <span class="keyword">Dim</span> cell <span class="keyword">As</span> Range</span><br><span class="line">    <span class="keyword">Dim</span> count <span class="keyword">As</span> <span class="type">Long</span></span><br><span class="line">    <span class="keyword">Dim</span> mergedCell <span class="keyword">As</span> Range</span><br><span class="line">    <span class="keyword">Dim</span> cellValue <span class="keyword">As</span> <span class="type">String</span></span><br><span class="line"></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">For</span> <span class="keyword">Each</span> cell <span class="keyword">In</span> rng</span><br><span class="line">        <span class="keyword">If</span> cell.MergeCells <span class="keyword">Then</span></span><br><span class="line">            <span class="comment">&#x27; 对于合并单元格，遍历合并区域内的每个单元格</span></span><br><span class="line">            <span class="keyword">For</span> <span class="keyword">Each</span> mergedCell <span class="keyword">In</span> cell.MergeArea</span><br><span class="line">                cellValue = mergedCell.Value</span><br><span class="line">                <span class="keyword">If</span> InStr(<span class="number">1</span>, cellValue, targetText, vbTextCompare) &gt; <span class="number">0</span> <span class="keyword">Then</span></span><br><span class="line">                    <span class="comment">&#x27; 如果合并单元格内包含目标文本，增加计数</span></span><br><span class="line">                    count = count + <span class="number">1</span></span><br><span class="line">                    <span class="keyword">Exit</span> <span class="keyword">For</span> <span class="comment">&#x27; 终止循环，只计数一次</span></span><br><span class="line">                <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">            <span class="keyword">Next</span> mergedCell</span><br><span class="line">        <span class="keyword">Else</span></span><br><span class="line">            <span class="comment">&#x27; 对于非合并单元格，检查单元格的值是否包含目标文本</span></span><br><span class="line">            cellValue = cell.Value</span><br><span class="line">            <span class="keyword">If</span> InStr(<span class="number">1</span>, cellValue, targetText, vbTextCompare) &gt; <span class="number">0</span> <span class="keyword">Then</span></span><br><span class="line">                count = count + <span class="number">1</span></span><br><span class="line">            <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">Next</span> cell</span><br><span class="line"></span><br><span class="line">    CountMergedCellsContainingText = count</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br></pre></td></tr></table></figure>
 
-    count = 0
-
-    For Each cell In rng
-        If cell.MergeCells Then
-            &#39; 对于合并单元格，遍历合并区域内的每个单元格
-            For Each mergedCell In cell.MergeArea
-                cellValue = mergedCell.Value
-                If InStr(1, cellValue, targetText, vbTextCompare) &gt; 0 Then
-                    &#39; 如果合并单元格内包含目标文本，增加计数
-                    count = count + 1
-                    Exit For &#39; 终止循环，只计数一次
-                End If
-            Next mergedCell
-        Else
-            &#39; 对于非合并单元格，检查单元格的值是否包含目标文本
-            cellValue = cell.Value
-            If InStr(1, cellValue, targetText, vbTextCompare) &gt; 0 Then
-                count = count + 1
-            End If
-        End If
-    Next cell
-
-    CountMergedCellsContainingText = count
-End Function
-</code></pre>
 <p>这个修正后的 VBA 代码会遍历合并单元格中的每个单元格，检查它们是否包含目标文本，并在合并前计数满足条件的单元格。如果合并单元格中的任何单元格包含目标文本，将增加计数并退出合并单元格的循环以避免重复计数。</p>
 <p>你可以在 Excel 工作表中使用 <code>CountMergedCellsContainingText</code> 函数来执行这个操作，如下所示：</p>
 <p>excel</p>
-<pre><code class="vb">=CountMergedCellsContainingText(A1:B2, &quot;目标文本&quot;)
-</code></pre>
+<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=CountMergedCellsContainingText(A1:B2, <span class="string">&quot;目标文本&quot;</span>)</span><br></pre></td></tr></table></figure>
+
 <p>这将统计 A1 到 B2 范围内包含 “目标文本” 的合并单元格数量，同时考虑合并前的数量。</p>
 <p><strong>为什么“对于合并单元格，遍历合并区域内的每个单元格”</strong></p>
 <p>ChatGPT<br>对于合并单元格，需要遍历合并区域内的每个单元格，主要是因为合并单元格实际上是一个单一的视觉单元，但在 Excel 内部，它们是由多个单元格组成的。因此，如果你想要在合并单元格中查找特定的文本或执行其他操作，你需要遍历合并区域内的每个单元格来检查其内容。</p>
@@ -239,7 +211,7 @@ End Function
     <div id="nav-footer" style="display: none">
       <ul>
         
-          <li><a href="/">Home</a></li>
+          <li><a href="/about/">Home</a></li>
         
           <li><a href="/about/">About</a></li>
         
@@ -300,7 +272,7 @@ End Function
     <nav>
       <ul>
         <!--
-       --><li><a href="/">Home</a></li><!--
+       --><li><a href="/about/">Home</a></li><!--
      --><!--
        --><li><a href="/about/">About</a></li><!--
      --><!--
