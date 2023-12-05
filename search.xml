@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>231205-周二</title>
+      <link href="/2023/12/05/%E6%97%A5%E5%BF%97/231205-%E5%91%A8%E4%BA%8C/"/>
+      <url>/2023/12/05/%E6%97%A5%E5%BF%97/231205-%E5%91%A8%E4%BA%8C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="完成内容"><a href="#完成内容" class="headerlink" title="完成内容"></a>完成内容</h2><ol><li>搭建Quest-Unity的VR开发环境</li><li>选择班级活动电影<ul><li>试图画电影时间线图，一天里每部电影有多个时段</li><li><del>找一些画时间线工具</del></li><li>调试gpt给我生成了一份python代码</li></ul></li><li>设置Hexo-Cactus博客字体</li></ol><h2 id="进行中"><a href="#进行中" class="headerlink" title="进行中"></a>进行中</h2><ol><li>了解Nerf</li><li>了解Gaussian Splatting<ul><li>渲染的结果是否可以应用在VR场景 &gt; 可以</li><li>是否可以用VR设备拍摄生成 &gt; ?</li></ul></li></ol><h2 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h2><ul><li>希望美团尽快给我开奖，尽管已经处在接受被婉拒的状态中了</li></ul><h2 id="明日计划"><a href="#明日计划" class="headerlink" title="明日计划"></a>明日计划</h2><ol><li>华为面试 0.5h</li><li>总结和计划 1.5h<ol><li>更新计划表</li><li>总结上周</li><li>计划本周</li></ol></li><li>读TPAMI上的热门（经典）文章 3h</li><li>刷题 1.5h</li><li>健身 0.5h</li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> journal </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo-Cactus博客字体设置</title>
       <link href="/2023/12/05/hexo-cactus%E5%8D%9A%E5%AE%A2%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/"/>
       <url>/2023/12/05/hexo-cactus%E5%8D%9A%E5%AE%A2%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/</url>
