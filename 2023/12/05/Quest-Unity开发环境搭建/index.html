@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="需安装软件 主要 oculus unity lts（长期支持版本） android支持套件     辅助 sidequest oculus develper hub   软件设置 oculus 用于直接串流unity开发场景到头显中，而不用打包发布 设置 &gt; 测试版 &gt; 打开 开发者runtime，oculus link 透视 设置 &gt; 通用&gt; 打开未知来源，openXR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quest-Unity开发环境搭建">
+<meta property="og:url" content="http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="Li Mingshuang">
+<meta property="og:description" content="需安装软件 主要 oculus unity lts（长期支持版本） android支持套件     辅助 sidequest oculus develper hub   软件设置 oculus 用于直接串流unity开发场景到头显中，而不用打包发布 设置 &gt; 测试版 &gt; 打开 开发者runtime，oculus link 透视 设置 &gt; 通用&gt; 打开未知来源，openXR">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/Pasted%20image%2020231205141059.png">
+<meta property="article:published_time" content="2023-12-05T05:40:50.000Z">
+<meta property="article:modified_time" content="2023-12-05T14:56:13.749Z">
+<meta property="article:author" content="Li Mingshuang">
+<meta property="article:tag" content="VR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/Pasted%20image%2020231205141059.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Quest-Unity开发环境搭建</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2023/12/05/hexo-cactus%E5%8D%9A%E5%AE%A2%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/11/05/How%20to%20Write%20a%20Paper%20in%20a%20Weekend%20(By%20Prof.%20Pete%20Carr)/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&text=Quest-Unity开发环境搭建"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&title=Quest-Unity开发环境搭建"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&is_video=false&description=Quest-Unity开发环境搭建"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Quest-Unity开发环境搭建&body=Check out this article: http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&title=Quest-Unity开发环境搭建"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&title=Quest-Unity开发环境搭建"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&title=Quest-Unity开发环境搭建"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&title=Quest-Unity开发环境搭建"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&name=Quest-Unity开发环境搭建&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&t=Quest-Unity开发环境搭建"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">需安装软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">搭建流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAUnity%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.1.</span> <span class="toc-text">创建Unity项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Unity%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.2.</span> <span class="toc-text">Unity界面介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quest%E4%B8%80%E4%BD%93%E6%9C%BA%E5%BC%80%E5%8F%91%E7%9A%84%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">Quest一体机开发的环境配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3"><span class="toc-number">3.</span> <span class="toc-text">报错及解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%B1%95"><span class="toc-number">4.</span> <span class="toc-text">进展</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Quest-Unity开发环境搭建
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Li Mingshuang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-12-05T05:40:50.000Z" class="dt-published" itemprop="datePublished">2023-12-05</time>
+        
+        (Updated: <time datetime="2023-12-05T14:56:13.749Z" class="dt-updated" itemprop="dateModified">2023-12-05</time>)
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/VR/" rel="tag">VR</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="需安装软件"><a href="#需安装软件" class="headerlink" title="需安装软件"></a>需安装软件</h2><ul>
+<li>主要<ul>
+<li>oculus</li>
+<li>unity<ul>
+<li>lts（长期支持版本）</li>
+<li>android支持套件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>辅助<ul>
+<li>sidequest</li>
+<li>oculus develper hub</li>
+</ul>
+</li>
+<li>软件设置</li>
+<li>oculus<ul>
+<li>用于直接串流unity开发场景到头显中，而不用打包发布</li>
+<li>设置 &gt; 测试版 &gt; 打开 开发者runtime，oculus link 透视</li>
+<li>设置 &gt; 通用&gt; 打开未知来源，openXR runtime设置成“将Oculus设为使用中”</li>
+</ul>
+</li>
+</ul>
+<h2 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h2><h3 id="创建Unity项目"><a href="#创建Unity项目" class="headerlink" title="创建Unity项目"></a>创建Unity项目</h3><ol>
+<li>选择需要的版本</li>
+<li>选择3D模块</li>
+<li>修改项目名称和存放路径</li>
+</ol>
+<h3 id="Unity界面介绍"><a href="#Unity界面介绍" class="headerlink" title="Unity界面介绍"></a>Unity界面介绍</h3><ul>
+<li>菜单栏（顶部）</li>
+<li>Scene窗口<ul>
+<li>看到游戏窗口</li>
+<li>在该窗口中编辑游戏物体</li>
+</ul>
+</li>
+<li>Hirrarchy窗口<ul>
+<li>显示当前场景中的游戏物体以及物体层级</li>
+<li>层级关系：<ul>
+<li>首先有个场景</li>
+<li>场景中有些物体</li>
+<li>每个物体上有些组件，这些组件赋予物体在游戏中的行为<ul>
+<li>摄像头</li>
+<li>碰撞体</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Inspector窗口<ul>
+<li>显示物体挂载的组件或者脚本</li>
+</ul>
+</li>
+<li>Project窗口<ul>
+<li>显示项目文件夹</li>
+</ul>
+</li>
+<li>Console窗口<ul>
+<li>游戏运行时输出日志信息</li>
+<li>用来调试的工具</li>
+</ul>
+</li>
+<li>Game窗口<ul>
+<li>点击运行后，game窗口显示游戏运行时的画面</li>
+</ul>
+</li>
+</ul>
+<h3 id="Quest一体机开发的环境配置"><a href="#Quest一体机开发的环境配置" class="headerlink" title="Quest一体机开发的环境配置"></a>Quest一体机开发的环境配置</h3><ul>
+<li>菜单栏 &gt; file &gt; build settings，切换平台到android</li>
+<li>导入xr开发的sdk<ul>
+<li>先介绍手势追踪和mr开发，所以选择sdk是meta官方的<a target="_blank" rel="noopener" href="https://developer.oculus.com/documentation/unity/unity-package-manager/"><strong>Meta XR UPM Packages</strong></a></li>
+<li>菜单栏 &gt; window &gt; assets store &gt; search online &gt; 搜索该插件 &gt; 添加至我的资源</li>
+<li>菜单栏 &gt; window &gt; package manager &gt; packages切换成my assets &gt; 找到sdk，点击import &gt; show assets，clean up</li>
+<li>导入成功后可以在assets文件夹中看到oculus文件夹</li>
+</ul>
+</li>
+<li>设置<ul>
+<li>菜单栏 &gt; edit &gt; project settings &gt;<ul>
+<li>Oculus &gt; 点击<em>fix all</em>和<em>apply all</em>自动配置开发quest一体机需要的设置，直到全部变绿</li>
+<li>XR Plug-in management &gt; 确保在安卓模块下勾选了Oculus，在Pc端勾选Oculus或Open XR<ul>
+<li>Oculus &gt; PC端把single pass改成multiple pass，安卓端选择对应的target devices（quest+quest2）</li>
+</ul>
+</li>
+<li>Player &gt; 安卓端 &gt; other settings &gt; <ul>
+<li>rendering &gt; colorspace: Linerar</li>
+<li>Identification &gt; Mininum API Level: Android 10.0</li>
+<li>Configuration &gt; <ul>
+<li>Scripting Backend: IL2CPP </li>
+<li>Target Arch &gt; 勾选ARM64，取消勾选ARM v7</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Quality &gt; Anti Aliasing: 4x</li>
+</ul>
+</li>
+<li>启用手势追踪<ul>
+<li>Projects窗口 &gt; Assets &gt; Oculus文件夹 &gt;  Oculus Project Config &gt; Hand Tracking Support: 设为包含手势的选项，手势追踪频率：high，手势追踪版本：v2</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>展示示例<ul>
+<li><img src="/../assets/Pasted%20image%2020231205141059.png">打开运行可以直接在头显中显示</li>
+<li>发布到一体机<ul>
+<li>菜单栏 &gt; File &gt; Build Settings &gt; <ul>
+<li>需要将场景添加到Scenes In Build，点击Add Open Scenes可以直接把当前场景添加进去</li>
+<li>Run Device改成连接的头显</li>
+<li>点击Build and run</li>
+<li>会打包成一个apk，然后发布到头显中直接运行</li>
+<li>需要创建一个文件夹，可以在项目路径创建一个Build文件夹存放</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="报错及解决"><a href="#报错及解决" class="headerlink" title="报错及解决"></a>报错及解决</h2><p><a target="_blank" rel="noopener" href="https://developer.oculus.com/downloads/package/meta-xr-sdk-all-in-one-upm/">Meta XR All-in-One SDK (UPM)</a><br><a target="_blank" rel="noopener" href="https://developer.oculus.com/documentation/unity/unity-package-manager/">Import Meta XR SDKs in Unity Package Manager</a><br><a target="_blank" rel="noopener" href="https://communityforums.atmeta.com/t5/Unity-VR-Development/Have-trouble-with-importing-Meta-All-in-One-SDK-from-Unity/td-p/1103606">Have trouble with importing Meta All-in-One SDK fr… - Meta Community Forums - 1103606</a><br><a target="_blank" rel="noopener" href="https://communityforums.atmeta.com/t5/Unity-VR-Development/Have-trouble-with-importing-Meta-All-in-One-SDK-from-Unity/td-p/1103606/page/2">Have trouble with importing Meta All-in-One SDK fr… - Page 2 - Meta Community Forums - 1103606</a><br>导入最新的oculus sdk all-in-one包失败，使用旧版的集成包</p>
+<h2 id="进展"><a href="#进展" class="headerlink" title="进展"></a>进展</h2><p>231205<br>环境配置完成</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">需安装软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">搭建流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAUnity%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.1.</span> <span class="toc-text">创建Unity项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Unity%E7%95%8C%E9%9D%A2%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.2.</span> <span class="toc-text">Unity界面介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quest%E4%B8%80%E4%BD%93%E6%9C%BA%E5%BC%80%E5%8F%91%E7%9A%84%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">Quest一体机开发的环境配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3"><span class="toc-number">3.</span> <span class="toc-text">报错及解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%B1%95"><span class="toc-number">4.</span> <span class="toc-text">进展</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&text=Quest-Unity开发环境搭建"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&title=Quest-Unity开发环境搭建"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&is_video=false&description=Quest-Unity开发环境搭建"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Quest-Unity开发环境搭建&body=Check out this article: http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&title=Quest-Unity开发环境搭建"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&title=Quest-Unity开发环境搭建"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&title=Quest-Unity开发环境搭建"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&title=Quest-Unity开发环境搭建"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&name=Quest-Unity开发环境搭建&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/&t=Quest-Unity开发环境搭建"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022-2023
+    Li Mingshuang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

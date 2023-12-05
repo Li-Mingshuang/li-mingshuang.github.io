@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>Hexo-Cactus博客字体设置</title>
+      <link href="/2023/12/05/hexo-cactus%E5%8D%9A%E5%AE%A2%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/"/>
+      <url>/2023/12/05/hexo-cactus%E5%8D%9A%E5%AE%A2%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<ol><li><p>在该文件中添加字体</p><ul><li><code>D:\myFiles\blog\themes\cactus\source\css\_fonts.styl</code></li><li>可以使用gpt辅助生成代码<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@font-face</span></span><br><span class="line">  <span class="attribute">font-style</span>: normal</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&quot;LXGWWenKaiGBScreenR&quot;</span></span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">local</span>(<span class="string">&quot;LXGWWenKaiGBScreenR&quot;</span>), <span class="built_in">url</span>(<span class="string">&quot;../lib/LXGWWenKaiGBScreenR/LXGWWenKaiGBScreenR.ttf&quot;</span>) <span class="built_in">format</span>(<span class="string">&quot;truetype&quot;</span>)</span><br></pre></td></tr></table></figure></li></ul></li><li><p>在该文件添加调用的字体，字体按顺序调用</p><ul><li><code>D:\myFiles\blog\themes\cactus\source\css\_variables.styl</code><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Fonts</span></span><br><span class="line"><span class="comment">// lms231205: 字体（标题、正文、目录...）</span></span><br><span class="line"><span class="comment">// $font-family-body = &quot;Menlo&quot;, &quot;Meslo LG&quot;, monospace</span></span><br><span class="line"><span class="variable">$font</span>-family-<span class="selector-tag">body</span> = <span class="string">&quot;LXGWWenKaiGBScreenR&quot;</span>, <span class="string">&quot;PingFang&quot;</span>, <span class="string">&quot;Georgia&quot;</span>, <span class="string">&quot;Microsoft YaHei&quot;</span>, <span class="string">&quot;Menlo&quot;</span>, <span class="string">&quot;Meslo LG&quot;</span>, monospace</span><br><span class="line"><span class="comment">// lms231205: 代码字体</span></span><br><span class="line"><span class="comment">// $font-family-mono = &quot;Menlo&quot;, &quot;Meslo LG&quot;, monospace</span></span><br><span class="line"><span class="variable">$font</span>-family-mono = <span class="string">&quot;Consolas&quot;</span>, <span class="string">&quot;CourierNew&quot;</span>, <span class="string">&quot;Microsoft YaHei&quot;</span>, <span class="string">&quot;Menlo&quot;</span>, <span class="string">&quot;Meslo LG&quot;</span>, monospace</span><br><span class="line"><span class="comment">// $font-size = 14px</span></span><br><span class="line"><span class="variable">$font</span>-size = <span class="number">16px</span> <span class="comment">// lms231205: 修改正文字体大小</span></span><br><span class="line"><span class="comment">// $line-height = 1.725</span></span><br><span class="line"><span class="variable">$line</span>-<span class="attribute">height</span> = <span class="number">2</span>  // lms231205: 修改行间距</span><br></pre></td></tr></table></figure>这个文件夹中只能修改这些字体相关设置。<br>无法单独修改不同元素的字体及大小，比如，标题，正文，文内标题，侧栏目录。<br>也无法修改代码字体大小（感觉太小了）。</li></ul></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> blog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Quest-Unity开发环境搭建</title>
+      <link href="/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+      <url>/2023/12/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<h2 id="需安装软件"><a href="#需安装软件" class="headerlink" title="需安装软件"></a>需安装软件</h2><ul><li>主要<ul><li>oculus</li><li>unity<ul><li>lts（长期支持版本）</li><li>android支持套件</li></ul></li></ul></li><li>辅助<ul><li>sidequest</li><li>oculus develper hub</li></ul></li><li>软件设置</li><li>oculus<ul><li>用于直接串流unity开发场景到头显中，而不用打包发布</li><li>设置 &gt; 测试版 &gt; 打开 开发者runtime，oculus link 透视</li><li>设置 &gt; 通用&gt; 打开未知来源，openXR runtime设置成“将Oculus设为使用中”</li></ul></li></ul><h2 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h2><h3 id="创建Unity项目"><a href="#创建Unity项目" class="headerlink" title="创建Unity项目"></a>创建Unity项目</h3><ol><li>选择需要的版本</li><li>选择3D模块</li><li>修改项目名称和存放路径</li></ol><h3 id="Unity界面介绍"><a href="#Unity界面介绍" class="headerlink" title="Unity界面介绍"></a>Unity界面介绍</h3><ul><li>菜单栏（顶部）</li><li>Scene窗口<ul><li>看到游戏窗口</li><li>在该窗口中编辑游戏物体</li></ul></li><li>Hirrarchy窗口<ul><li>显示当前场景中的游戏物体以及物体层级</li><li>层级关系：<ul><li>首先有个场景</li><li>场景中有些物体</li><li>每个物体上有些组件，这些组件赋予物体在游戏中的行为<ul><li>摄像头</li><li>碰撞体</li></ul></li></ul></li></ul></li><li>Inspector窗口<ul><li>显示物体挂载的组件或者脚本</li></ul></li><li>Project窗口<ul><li>显示项目文件夹</li></ul></li><li>Console窗口<ul><li>游戏运行时输出日志信息</li><li>用来调试的工具</li></ul></li><li>Game窗口<ul><li>点击运行后，game窗口显示游戏运行时的画面</li></ul></li></ul><h3 id="Quest一体机开发的环境配置"><a href="#Quest一体机开发的环境配置" class="headerlink" title="Quest一体机开发的环境配置"></a>Quest一体机开发的环境配置</h3><ul><li>菜单栏 &gt; file &gt; build settings，切换平台到android</li><li>导入xr开发的sdk<ul><li>先介绍手势追踪和mr开发，所以选择sdk是meta官方的<a href="https://developer.oculus.com/documentation/unity/unity-package-manager/"><strong>Meta XR UPM Packages</strong></a></li><li>菜单栏 &gt; window &gt; assets store &gt; search online &gt; 搜索该插件 &gt; 添加至我的资源</li><li>菜单栏 &gt; window &gt; package manager &gt; packages切换成my assets &gt; 找到sdk，点击import &gt; show assets，clean up</li><li>导入成功后可以在assets文件夹中看到oculus文件夹</li></ul></li><li>设置<ul><li>菜单栏 &gt; edit &gt; project settings &gt;<ul><li>Oculus &gt; 点击<em>fix all</em>和<em>apply all</em>自动配置开发quest一体机需要的设置，直到全部变绿</li><li>XR Plug-in management &gt; 确保在安卓模块下勾选了Oculus，在Pc端勾选Oculus或Open XR<ul><li>Oculus &gt; PC端把single pass改成multiple pass，安卓端选择对应的target devices（quest+quest2）</li></ul></li><li>Player &gt; 安卓端 &gt; other settings &gt; <ul><li>rendering &gt; colorspace: Linerar</li><li>Identification &gt; Mininum API Level: Android 10.0</li><li>Configuration &gt; <ul><li>Scripting Backend: IL2CPP </li><li>Target Arch &gt; 勾选ARM64，取消勾选ARM v7</li></ul></li></ul></li><li>Quality &gt; Anti Aliasing: 4x</li></ul></li><li>启用手势追踪<ul><li>Projects窗口 &gt; Assets &gt; Oculus文件夹 &gt;  Oculus Project Config &gt; Hand Tracking Support: 设为包含手势的选项，手势追踪频率：high，手势追踪版本：v2</li></ul></li></ul></li><li>展示示例<ul><li><img src="/../assets/Pasted%20image%2020231205141059.png">打开运行可以直接在头显中显示</li><li>发布到一体机<ul><li>菜单栏 &gt; File &gt; Build Settings &gt; <ul><li>需要将场景添加到Scenes In Build，点击Add Open Scenes可以直接把当前场景添加进去</li><li>Run Device改成连接的头显</li><li>点击Build and run</li><li>会打包成一个apk，然后发布到头显中直接运行</li><li>需要创建一个文件夹，可以在项目路径创建一个Build文件夹存放</li></ul></li></ul></li></ul></li></ul><h2 id="报错及解决"><a href="#报错及解决" class="headerlink" title="报错及解决"></a>报错及解决</h2><p><a href="https://developer.oculus.com/downloads/package/meta-xr-sdk-all-in-one-upm/">Meta XR All-in-One SDK (UPM)</a><br><a href="https://developer.oculus.com/documentation/unity/unity-package-manager/">Import Meta XR SDKs in Unity Package Manager</a><br><a href="https://communityforums.atmeta.com/t5/Unity-VR-Development/Have-trouble-with-importing-Meta-All-in-One-SDK-from-Unity/td-p/1103606">Have trouble with importing Meta All-in-One SDK fr… - Meta Community Forums - 1103606</a><br><a href="https://communityforums.atmeta.com/t5/Unity-VR-Development/Have-trouble-with-importing-Meta-All-in-One-SDK-from-Unity/td-p/1103606/page/2">Have trouble with importing Meta All-in-One SDK fr… - Page 2 - Meta Community Forums - 1103606</a><br>导入最新的oculus sdk all-in-one包失败，使用旧版的集成包</p><h2 id="进展"><a href="#进展" class="headerlink" title="进展"></a>进展</h2><p>231205<br>环境配置完成</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> VR </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>How to Write a Paper in a Weekend (By Prof. Pete Carr)</title>
       <link href="/2023/11/05/How%20to%20Write%20a%20Paper%20in%20a%20Weekend%20(By%20Prof.%20Pete%20Carr)/"/>
       <url>/2023/11/05/How%20to%20Write%20a%20Paper%20in%20a%20Weekend%20(By%20Prof.%20Pete%20Carr)/</url>
@@ -15,25 +53,6 @@
         <tags>
             
             <tag> 论文写作 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Quest-Unity开发环境搭建</title>
-      <link href="/2023/11/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-      <url>/2023/11/05/Quest-Unity%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
-      
-        <content type="html"><![CDATA[<h2 id="需安装软件"><a href="#需安装软件" class="headerlink" title="需安装软件"></a>需安装软件</h2><ul><li>主要<ul><li>oculus</li><li>unity<ul><li>lts（长期支持版本）</li><li>android支持套件</li></ul></li></ul></li><li>辅助<ul><li>sidequest</li><li>oculus develper hub</li></ul></li><li>软件设置</li><li>oculus<ul><li>用于直接串流unity开发场景到头显中，而不用打包发布</li><li><blockquote><p>设置&gt;测试版&gt;打开 开发者runtime，oculus link 透视</p></blockquote></li><li><blockquote><p>设置&gt;通用&gt; 打开未知来源，openXR runtime设置成“将Oculus设为使用中”</p></blockquote></li></ul></li></ul><h2 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h2><h3 id="创建Unity项目，"><a href="#创建Unity项目，" class="headerlink" title="创建Unity项目，"></a>创建Unity项目，</h3><ol><li>选择需要的版本</li><li>选择3D模块</li><li>修改项目名称和存放路径</li></ol><h3 id="Unity界面介绍"><a href="#Unity界面介绍" class="headerlink" title="Unity界面介绍"></a>Unity界面介绍</h3><ul><li>菜单栏（顶部）</li><li>Scene窗口<ul><li>看到游戏窗口</li><li>在该窗口中编辑游戏物体</li></ul></li><li>Hirrarchy窗口<ul><li>显示当前场景中的游戏物体以及物体层级</li><li>层级关系：<ul><li>首先有个场景</li><li>场景中有些物体</li><li>每个物体上有些组件，这些组件赋予物体在游戏中的行为<ul><li>摄像头</li><li>碰撞体</li></ul></li></ul></li></ul></li><li>Inspector窗口<ul><li>显示物体挂载的组件或者脚本</li></ul></li><li>Project窗口<ul><li>显示项目文件夹</li></ul></li><li>Console窗口<ul><li>游戏运行时输出日志信息</li><li>用来调试的工具</li></ul></li><li>Game窗口<ul><li>点击运行后，game窗口显示游戏运行时的画面</li></ul></li></ul><h3 id="Quest一体机开发的环境配置"><a href="#Quest一体机开发的环境配置" class="headerlink" title="Quest一体机开发的环境配置"></a>Quest一体机开发的环境配置</h3><ul><li>菜单栏 &gt; file &gt; build settings，切换平台到android</li><li>导入xr开发的sdk<ul><li>先介绍手势追踪和mr开发，所以选择sdk是meta官方的<a href="https://developer.oculus.com/documentation/unity/unity-package-manager/"><strong>Meta XR UPM Packages</strong></a></li><li>菜单栏 &gt; window &gt; assets store &gt; search online &gt; 搜索该插件 &gt; 添加至我的资源</li><li>菜单栏 &gt; window &gt; package manager &gt; packages切换成my assets &gt; 找到sdk，点击import &gt; show assets，clean up</li><li>导入成功后可以在assets文件夹中看到oculus文件夹</li></ul></li><li>设置<ul><li>菜单栏 &gt; edit &gt; project settings &gt;<ul><li>Oculus &gt; 点击<em>fix all</em>和<em>apply all</em>自动配置开发quest一体机需要的设置，直到全部变绿</li><li>XR Plug-in management &gt; 确保在安卓模块下勾选了Oculus，在Pc端勾选Oculus或Open XR<ul><li>Oculus &gt; PC端把single pass改成multiple pass，安卓端选择对应的target devices（quest+quest2）</li></ul></li><li>Player &gt; 安卓端 &gt; other settings &gt; <ul><li>rendering &gt; colorspace: Linerar</li><li>Identification &gt; Mininum API Level: Android 10.0</li><li>Configuration &gt; <ul><li>Scripting Backend: IL2CPP </li><li>Target Arch &gt; 勾选ARM64，取消勾选ARM v7</li></ul></li></ul></li><li>Quality &gt; Anti Aliasing: 4x</li></ul></li><li>启用手势追踪<ul><li>Projects窗口 &gt; Assets &gt; Oculus文件夹 &gt;  Oculus Project Config &gt; Hand Tracking Support: 设为包含手势的选项，手势追踪频率：high，手势追踪版本：v2</li></ul></li></ul></li><li>展示示例<ul><li><img src="/../assets/Pasted%20image%2020231205141059.png">打开运行可以直接在头显中显示</li><li>发布到一体机<ul><li>菜单栏 &gt; File &gt; Build Settings &gt; <ul><li>需要将场景添加到Scenes In Build，点击Add Open Scenes可以直接把当前场景添加进去</li><li>Run Device改成连接的头显</li><li>点击Build and run</li><li>会打包成一个apk，然后发布到头显中直接运行</li><li>需要创建一个文件夹，可以在项目路径创建一个Build文件夹存放</li></ul></li></ul></li></ul></li></ul><h2 id="报错及解决"><a href="#报错及解决" class="headerlink" title="报错及解决"></a>报错及解决</h2><p><a href="https://developer.oculus.com/downloads/package/meta-xr-sdk-all-in-one-upm/">Meta XR All-in-One SDK (UPM)</a><br><a href="https://developer.oculus.com/documentation/unity/unity-package-manager/">Import Meta XR SDKs in Unity Package Manager</a><br><a href="https://communityforums.atmeta.com/t5/Unity-VR-Development/Have-trouble-with-importing-Meta-All-in-One-SDK-from-Unity/td-p/1103606">Have trouble with importing Meta All-in-One SDK fr… - Meta Community Forums - 1103606</a><br><a href="https://communityforums.atmeta.com/t5/Unity-VR-Development/Have-trouble-with-importing-Meta-All-in-One-SDK-from-Unity/td-p/1103606/page/2">Have trouble with importing Meta All-in-One SDK fr… - Page 2 - Meta Community Forums - 1103606</a><br>导入最新的oculus sdk all-in-one包失败，使用旧版的集成包</p><h2 id="进展"><a href="#进展" class="headerlink" title="进展"></a>进展</h2><p>231205<br>环境配置完成</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> VR </tag>
             
         </tags>
       
