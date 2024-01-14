@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="【官方双语】为什么正态分布里会有一个π？（不止是积分技巧）_哔哩哔哩_bilibili 本节课主题 解释$e^{-x^{2}}$ 下方的面积为什么是$\sqrt{\pi}$  为什么$e^{-x^{2}}$如此特殊 许多函数都能描述中间突起，两边平滑下降的形状，为什么正态分布函数的形式恰好是 $e^{-x^{2}}$   将以上内容和中心极限定理关联起来  正态分布曲线下方面积证明 需要求$\in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3B1B-为什么正态分布里会有一个π？（不止是积分技巧）">
+<meta property="og:url" content="http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/index.html">
+<meta property="og:site_name" content="Li Mingshuang">
+<meta property="og:description" content="【官方双语】为什么正态分布里会有一个π？（不止是积分技巧）_哔哩哔哩_bilibili 本节课主题 解释$e^{-x^{2}}$ 下方的面积为什么是$\sqrt{\pi}$  为什么$e^{-x^{2}}$如此特殊 许多函数都能描述中间突起，两边平滑下降的形状，为什么正态分布函数的形式恰好是 $e^{-x^{2}}$   将以上内容和中心极限定理关联起来  正态分布曲线下方面积证明 需要求$\in">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/Pasted%20image%2020240114161118.png">
+<meta property="og:image" content="http://example.com/assets/Pasted%20image%2020240114161134.png">
+<meta property="article:published_time" content="2024-01-12T15:10:45.000Z">
+<meta property="article:modified_time" content="2024-01-14T08:19:23.722Z">
+<meta property="article:author" content="Li Mingshuang">
+<meta property="article:tag" content="Math&#x2F;Possibility">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/Pasted%20image%2020240114161118.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>3B1B-为什么正态分布里会有一个π？（不止是积分技巧）</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/12/05/%E6%97%A5%E5%BF%97/231205-%E5%91%A8%E4%BA%8C/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&text=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&title=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&is_video=false&description=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）&body=Check out this article: http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&title=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&title=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&title=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&title=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&name=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&t=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E8%8A%82%E8%AF%BE%E4%B8%BB%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">本节课主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E6%9B%B2%E7%BA%BF%E4%B8%8B%E6%96%B9%E9%9D%A2%E7%A7%AF%E8%AF%81%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">正态分布曲线下方面积证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%AB%E6%AD%87%E5%B0%94-%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E7%9A%84%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0%E6%8E%A8%E5%AF%BC"><span class="toc-number">3.</span> <span class="toc-text">赫歇尔-麦克斯韦的正态分布函数推导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E9%9D%A2%E7%A7%AF%E8%AF%81%E6%98%8E%E5%92%8C%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0%E6%8E%A8%E5%AF%BC%E7%9A%84%E8%AE%A8%E8%AE%BA"><span class="toc-number">4.</span> <span class="toc-text">关于面积证明和正态分布函数推导的讨论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E5%90%8E%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">课后问题</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        3B1B-为什么正态分布里会有一个π？（不止是积分技巧）
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Li Mingshuang</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-01-12T15:10:45.000Z" class="dt-published" itemprop="datePublished">2024-01-12</time>
+        
+        (Updated: <time datetime="2024-01-14T08:19:23.722Z" class="dt-updated" itemprop="dateModified">2024-01-14</time>)
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Math-Possibility/" rel="tag">Math/Possibility</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wu411W7uU">【官方双语】为什么正态分布里会有一个π？（不止是积分技巧）_哔哩哔哩_bilibili</a></p>
+<h2 id="本节课主题"><a href="#本节课主题" class="headerlink" title="本节课主题"></a>本节课主题</h2><ol>
+<li>解释$e^{-x^{2}}$ 下方的面积为什么是$\sqrt{\pi}$ </li>
+<li>为什么$e^{-x^{2}}$如此特殊<ul>
+<li>许多函数都能描述中间突起，两边平滑下降的形状，为什么正态分布函数的形式恰好是 $e^{-x^{2}}$</li>
+</ul>
+</li>
+<li>将以上内容和中心极限定理关联起来</li>
+</ol>
+<h2 id="正态分布曲线下方面积证明"><a href="#正态分布曲线下方面积证明" class="headerlink" title="正态分布曲线下方面积证明"></a>正态分布曲线下方面积证明</h2><ul>
+<li>需要求$\int e^{-x^{2}}dx$  </li>
+<li>$f(x)&#x3D;e^{-x^{2}}$的原函数存在，但是没办法表达成通常的函数（用基本函数组合）</li>
+<li>在函数中增加一个维度<ul>
+<li>$f_{1}(x) &#x3D; e^{-x^{2}}$ </li>
+<li>$f_{2}(x, y) &#x3D; e^{-(x^{2}+y^{2})}$ </li>
+<li>目前这样操作没有很好的动机解释，先推导下去看看；另一方面，对于难题来说，通常解决相似的问题可以给人动力和启发</li>
+</ul>
+</li>
+<li>$f_{2}(x,y) &#x3D; e^{-(x^{2}+ y^{2})} &#x3D; e^{-r^{2}}$ </li>
+<li>计算$f_{2}(x,y)$ 曲面下的体积：<ul>
+<li>考虑对曲面下一系列同心圆筒进行积分，对于任一圆筒<ul>
+<li>$Volume &#x3D; 2\pi r \cdot e^{-r^{2}} dr$</li>
+</ul>
+</li>
+<li>曲面下体积：$\int_{0}^{\infty} 2\pi r \cdot e^{-r^{2}} dr &#x3D; \pi \int_{0}^{\infty} 2 r \cdot e^{-r^{2}} dr$ <ul>
+<li>被积分的函数可以找到原函数 $\frac{d}{dr}(-e^{-r^{2}})&#x3D; 2r \cdot e^{-r^{2}}$ </li>
+<li>$\pi \int_{0}^{\infty} 2 r \cdot e^{-r^{2}} dr &#x3D; \pi[-e^{-\infty^{2}} - (-e^{-0^{2}})] &#x3D; \pi[0 - (-1)] &#x3D; \pi$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>求曲面下体积的更通用的方法是，将它切成一个个平行于坐标轴的薄片<ul>
+<li>$y&#x3D;0$ 时切片为<ul>
+<li>$e^{-(x^{2}+y^{2})} &#x3D; e^{-x^{2}}e^{-y^{2}} &#x3D; e^{-x^{2}}e^{0}&#x3D; 1.00e^{-x^{2}}$  </li>
+<li>姑且将该切面面积记作 $C &#x3D; \int_{-\infty}^{\infty}e^{-x^{2}}dx$ </li>
+<li>$y\neq 0$ 时 ，切面函数面积 $Area &#x3D; e^{-y^{2}}\int_{-\infty}^{\infty}e^{-x^{2}}dx &#x3D; (小于1的系数) \cdot C$ <ul>
+<li>这些切面的基本形状都相同，只是竖直方向被缩放了</li>
+<li>绝大多数二元函数并没有该性质，该性质取决于能否将函数分离成只依赖y的函数和只依赖x的函数的乘积</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>曲面下的体积：$\int_{-\infty}^{\infty}C \cdot e^{-y^{2}}dy &#x3D; C\int_{-\infty}^{\infty}e^{-y^{2}}dy &#x3D; C^2$</li>
+</ul>
+</li>
+<li>根据以上$$\begin{align*}<br>Area&amp;&#x3D;C&#x3D;\sqrt{\pi}\<br>Volume&amp;&#x3D;C^2&#x3D;\pi\<br>Volume&amp;&#x3D;\pi<br>\end{align*}$$</li>
+</ul>
+<h2 id="赫歇尔-麦克斯韦的正态分布函数推导"><a href="#赫歇尔-麦克斯韦的正态分布函数推导" class="headerlink" title="赫歇尔-麦克斯韦的正态分布函数推导"></a>赫歇尔-麦克斯韦的正态分布函数推导</h2><ul>
+<li>约翰·赫歇尔提出了一种非常精巧的方式来推导正态分布的公式</li>
+<li>假设你想描述二维空间里的某种概率分布，比如飞镖击中靶子各处的概率密度</li>
+<li>赫歇尔证明了如果要让这个分布满足两个很合理的性质，便可推出该分布为这类函数 $f_{2}(x, y) &#x3D; e^{-(x^{2}+y^{2})}$  <ul>
+<li>还有1个自由度（$\sigma$）来控制这个分布有多分散，并且函数前面有一个常数来确保分布函数下方的总体积为1 $$f_{2}(x, y) &#x3D; \frac{1}{4\sigma^{2}\pi} e^{-(x^{2}+y^{2})&#x2F;2\sigma^{2}}$$</li>
+</ul>
+</li>
+<li>两条需要满足的性质<ol>
+<li>（<strong>径向对称性</strong>）平面上每个点的概率密度只取决于该点离原点的距离<ul>
+<li>和原点到该点的方向无关</li>
+<li>用瞄准靶心射击来举例的话，这意味着靶子旋转后，概率分布还是一样</li>
+<li>用数学语言描述这个性质，这个关于x，y的函数，可以改写成只关于半径r的单变量函数：$f_{2}(x,y) &#x3D; f(r) &#x3D; f(\sqrt{x^{2}+y^{2}})$</li>
+</ul>
+</li>
+<li>（<strong>各个轴的坐标值独立</strong>）每个随机点的x值和y值相互独立<ul>
+<li>也就是说知道一个点的横坐标x，对于确定其纵坐标y毫无帮助</li>
+<li>用公式表示这个性质：$f_{2}(x,y)&#x3D;g(x)h(y)$，即表示各个点概率密度的函数，可以分离成两个函数的乘积，其中$g(x)$ 代表了横坐标值的概率分布，$h(y)$ 代表了纵坐标值的概率分布</li>
+<li>再考虑第一条假设的话，概率分布要径向对称，那x和y的分布必须一样</li>
+<li>公式可以写成$f_2(x,y)&#x3D;g(x)g(y)$</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>结合第1、2条性质的推导，$f_2(x,y)&#x3D;f(r) &#x3D; g(x)g(y)$ <ul>
+<li>考虑点$(r,0)$，$f_2(r,0)&#x3D;f(r)&#x3D;g(r)g(0)&#x3D;g(r)C$<ul>
+<li>这表明，函数f和g是两个基本一样，只是差常数倍的函数</li>
+</ul>
+</li>
+<li>可以假设$g(0)&#x3D;1$，尽管这样会让推导出来的函数和实际分布差常数倍，但是无所谓，因为分布本来就要归一化到下方为1<ul>
+<li>那么 $f&#x3D;g$</li>
+<li>? 为什么假设$g(0)&#x3D;1$只会让结果差常数倍，不这样假设能继续推导出来吗？</li>
+</ul>
+</li>
+<li>得到$f_{2}(x,y)&#x3D;f(r)&#x3D;f(x)f(y)$</li>
+</ul>
+</li>
+<li>解函数方程：$f(r)&#x3D;f(\sqrt{x^{2}+y^{2}})&#x3D;f(x)f(y)$<ul>
+<li>找满足这个等式的所有函数</li>
+<li>引入一个辅助函数$h(x) &#x3D; f(\sqrt{x})$，即$h(x^{2})&#x3D;f(x)$<ul>
+<li>h可以让性质的形式变得好看：$h(x^{2}+y^{2}) &#x3D; h(x^{2})h(y^{2})$ </li>
+<li>可以说h函数将加法变成了乘法</li>
+</ul>
+</li>
+<li>将任意n个数代入h，这个性质依旧成立<ul>
+<li>$h(x_{1}+x_{2}+\cdots+x_{n})&#x3D;h(x_{1})h(x_{2})\cdots h(x_{n})$ </li>
+<li>代入一个具体的值$h(5)&#x3D;h(1+1+1+1+1)&#x3D;h(1)h(1)h(1)h(1)h(1)&#x3D;h(1)^{5}$ </li>
+<li>$h(n) &#x3D; h(1)^{n} &#x3D; b^{n}$</li>
+</ul>
+</li>
+<li>? 练习：证明这个性质对于有理数 $p&#x2F;q$ 依然成立，即 $h(p&#x2F;q)&#x3D;b^{p&#x2F;q}$ <ul>
+<li>提示：考虑$h(\frac{p}{q}+\cdots+ \frac{p}{q})$ ，将$p&#x2F;q$相加q次</li>
+</ul>
+</li>
+<li>因为有理数在实数轴上是稠密的，再做另一个合理的假设，我们只关注连续的函数</li>
+<li>得到结论：h一定是指数函数 $h(x)&#x3D;b^{x}$<ul>
+<li>其中b和x都是正实数</li>
+<li>指数函数都可以写作 $h(x) &#x3D; e^{cx}$ ，方便做微积分的计算</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>因此目标函数的形式为 $f(x)&#x3D;e^{cx^{2}}$ </li>
+<li>二元概率分布函数为$f(r)&#x3D;e^{cr^{2}}$<ul>
+<li>如果c为正值，曲面下方的体积为无穷大，无法归一化成概率分布，因此最后一个约束条件为，指数中的常数c必须是一个负数</li>
+</ul>
+</li>
+<li>10年后麦克斯韦用同样的假设独立推导了3维空间高斯分布函数</li>
+</ul>
+<h2 id="关于面积证明和正态分布函数推导的讨论"><a href="#关于面积证明和正态分布函数推导的讨论" class="headerlink" title="关于面积证明和正态分布函数推导的讨论"></a>关于面积证明和正态分布函数推导的讨论</h2><ul>
+<li>如果认为这两个性质定义了高斯分布，那么公式中$\pi$的出现十分合理，因为圆形对称也是这个定义性质的一部分</li>
+<li>并且以上推导让之前计算曲线下方面积的证明看起来不只是技巧<ul>
+<li>数学中有个关键的解题原则是，使用你开始时定义好的性质</li>
+<li>证明中的第一步，将问题提升一个维度，实际上就是为了具体体现假设中的两条性质</li>
+<li>证明一方面利用了函数的径向对称性，另一方面利用了函数可分解的性质</li>
+</ul>
+</li>
+<li>赫歇尔-麦克斯韦的推导，用高维分布的两个性质去定义高斯分布，要求我们已经处在多维的情形中，但是通常高斯分布出现的情形，感觉跟空间和几何不相关，而是来源于中心极限定理，讲的是许多独立的同分布随机变量相加</li>
+<li>需要解释为什么这个赫歇尔-麦克斯韦推导所刻画的函数， 会等价于中心极限定理中最核心的函数<ul>
+<li>后续视频讲</li>
+</ul>
+</li>
+</ul>
+<h2 id="课后问题"><a href="#课后问题" class="headerlink" title="课后问题"></a>课后问题</h2><p>运用该技巧推导高维球体的体积公式<br>熟悉分部积分即可解答<br> <img src="/../assets/Pasted%20image%2020240114161118.png"><br> <img src="/../assets/Pasted%20image%2020240114161134.png">
+ </p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E8%8A%82%E8%AF%BE%E4%B8%BB%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">本节课主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E6%9B%B2%E7%BA%BF%E4%B8%8B%E6%96%B9%E9%9D%A2%E7%A7%AF%E8%AF%81%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">正态分布曲线下方面积证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%AB%E6%AD%87%E5%B0%94-%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E7%9A%84%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0%E6%8E%A8%E5%AF%BC"><span class="toc-number">3.</span> <span class="toc-text">赫歇尔-麦克斯韦的正态分布函数推导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E9%9D%A2%E7%A7%AF%E8%AF%81%E6%98%8E%E5%92%8C%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0%E6%8E%A8%E5%AF%BC%E7%9A%84%E8%AE%A8%E8%AE%BA"><span class="toc-number">4.</span> <span class="toc-text">关于面积证明和正态分布函数推导的讨论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E5%90%8E%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">课后问题</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&text=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&title=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&is_video=false&description=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）&body=Check out this article: http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&title=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&title=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&title=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&title=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&name=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2024/01/12/3B1B-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E9%87%8C%E4%BC%9A%E6%9C%89%E4%B8%80%E4%B8%AA%CF%80%EF%BC%9F%EF%BC%88%E4%B8%8D%E6%AD%A2%E6%98%AF%E7%A7%AF%E5%88%86%E6%8A%80%E5%B7%A7%EF%BC%89/&t=3B1B-为什么正态分布里会有一个π？（不止是积分技巧）"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2022-2024
+    Li Mingshuang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
